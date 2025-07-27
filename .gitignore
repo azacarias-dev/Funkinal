@@ -4,3 +4,4 @@ out/
 .cache/
 *.gz
 nb-configuration.xml
+target/
