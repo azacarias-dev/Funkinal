@@ -30,7 +30,7 @@ public class ServletRegistro extends HttpServlet{
         validacionDao vdao = new validacionDao();
         vdao.agregar(u);
         
-        solicitud.getRequestDispatcher("inicio.jsp").forward(solicitud, respuesta);
+        solicitud.getRequestDispatcher("index.jsp").forward(solicitud, respuesta);
         
     }
 }

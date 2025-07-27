@@ -11,6 +11,7 @@
         <link rel="stylesheet" href="styles/registro.css">
         <meta charset="UTF-8">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <link rel="icon" type="image/png" href="https://www.funko.com/on/demandware.static/Sites-FunkoUS-Site/-/default/dwdf4d4162/images/favicons/funko-favicon-96x96.png" />
         <title>Registro</title>
     </head>
     <body>
@@ -24,10 +25,10 @@
 
             <!-- Aquí va el logo justo debajo del título -->
             <div style="text-align: center; margin-bottom: 20px;">
-                <img src="../images/funkos.png" alt="Logo Funko" width="150">
+                <img src="images/funkos.png" alt="Logo Funko" width="150">
             </div>
 
-            <form action="ServletRegistrar" method="POST">
+            <form action="ServletRegistrar" method="post">
                 <label for="nombre">Nombre</label>
                 <input type="text" class="txtRegistro" name="nombre" required>
 

@@ -4,7 +4,7 @@
   <persistence-unit name="funkinalPU" transaction-type="RESOURCE_LOCAL">
     <!--      Proveedor de Persistencia-->
     <!--      Conexion a travez de la interfaz JDNI-->
-    <provider>org.eclipse.persistence.jpa.PersistenceProvider</provider>
+    <provider>org.hibernate.jpa.HibernatePersistenceProvider</provider>
     <!--    Clase Entidad-->
     <non-jta-data-source>jdbc/fun</non-jta-data-source>
     <class>model.UsuariosPojo</class>

@@ -10,6 +10,7 @@
     <head>
         <meta charset="UTF-8">
         <title>IniciarSesion | FunKinal</title>
+        <link rel="icon" type="image/png" href="https://www.funko.com/on/demandware.static/Sites-FunkoUS-Site/-/default/dwdf4d4162/images/favicons/funko-favicon-96x96.png" />
         <link rel="stylesheet" href="styles/login.css">
         <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap" rel="stylesheet">
     </head>
