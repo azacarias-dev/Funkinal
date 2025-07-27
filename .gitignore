@@ -1,0 +1,6 @@
+dist/
+build/
+out/
+.cache/
+*.gz
+nb-configuration.xml
