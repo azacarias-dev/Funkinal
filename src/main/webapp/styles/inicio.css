@@ -183,6 +183,12 @@ body {
     background-color: #555;
 }
 
+.menu-flotante summary {
+    text-decoration: none;
+    color: white;
+    font-weight: bold;
+    display: block;
+}
 /*------------------------------------*/
 /* Responsivo para encabezado */
 /*------------------------------------*/
@@ -1080,3 +1086,75 @@ body {
     width: 477px; /* O puedes poner un tamaño fijo, como 600px, según lo necesites */
     height: auto;
 }
+
+.toggle-button2 {
+    display: block;
+    width: 50px;
+    height: 50px;
+    background-color: #0099ff;
+    border-radius: 50%;
+    color: white;
+    font-size: 20px;
+    font-weight: bold;
+    text-align: center;
+    line-height: 50px;
+    cursor: pointer;
+    position: fixed;
+    top: 25px;
+    right: 25px;
+}
+
+.menu-flotante2 {
+    display: none;
+    position: fixed;
+    top: 85px;
+    right: 60px;
+    background-color: #333;
+    border-radius: 10px;
+    padding: 10px;
+    z-index: 999;
+    width: 160px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
+    transition: opacity 0.3s ease, transform 0.3s ease;
+    opacity: 0;
+    transform: scale(0.95);
+}
+
+.menu-flotante2.show {
+    display: block;
+    opacity: 1;
+    transform: scale(1);
+}
+
+.menu-flotante2 ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+.menu-flotante2 li {
+    padding: 10px;
+    border-bottom: 1px solid #555;
+}
+
+.menu-flotante2 li:last-child {
+    border-bottom: none;
+}
+
+.menu-flotante2 li a {
+    text-decoration: none;
+    color: white;
+    font-weight: bold;
+    display: block;
+}
+
+.menu-flotante2 li:hover {
+    background-color: #555;
+}
+
+.oculto {
+    display: none;
+}
+
+
+

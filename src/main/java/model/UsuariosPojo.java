@@ -24,7 +24,7 @@ public class UsuariosPojo {
     private String apellido;
     @Column(name = "correo")
     private String correo;
-    @Column(name = "contraseña")
+    @Column(name = "contrasena")
     private String contrasena;
     @Column(name = "telefono")
     private String telefono;

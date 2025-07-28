@@ -1,4 +1,4 @@
--- drop database FunKinal_DB;
+drop database FunKinal_DB;
 create database FunKinal_DB;
 use FunKinal_DB;
 
