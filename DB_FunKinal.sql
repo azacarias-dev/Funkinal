@@ -74,4 +74,4 @@ create table administradores (
     estado varchar(64) default("Activo")
 );
 
-select * from Usuarios;
+select * from categorias;

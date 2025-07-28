@@ -171,6 +171,18 @@
                 </li>
             </ul>
         </button>
+        
+        <div class="container">
+          <div class="row">
+              <div class="col-4">
+                  <ol>
+                      <li> <a href="agregarCategoria.jsp" class="btn">Agregar Cliente</a></li>
+                      <li> <a href="/Funkinal/CategoriaServlet?accion=listar">Listar Categoría</a></li>
+                      <li>Ver mas</li>
+                  </ol>
+              </div>  
+          </div>  
+      </div>
 
         <!-- Pie de página / Información general -->
         <footer class="footer">
