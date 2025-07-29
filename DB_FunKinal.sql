@@ -4,6 +4,7 @@ use FunKinal_DB;
 
 create table usuarios (
     idUsuario int auto_increment primary key,
+    rol enum("Usuario","Admin") default ("Usuario"),
     nombre varchar(50),
     apellido varchar(50),
     correo varchar(100) unique,
@@ -12,19 +13,22 @@ create table usuarios (
     estado varchar(64) default "Activo"
 );
 
-create table productos (
-    idProducto int auto_increment primary key,
-    nombre varchar(100),
-    precio decimal(10,2),
-    descripcion text,
-    stock int,
-    estado varchar (64) default ("Existencias")
-);
-
 create table categorias (
     idCategoria int auto_increment primary key,
     nombre varchar(100),
     descripcion text
+);
+
+create table productos (
+    idProducto int auto_increment primary key,
+    idCategoria int not null,
+    nombre varchar(100),
+    precio decimal(10,2),
+    descripcion text,
+    stock int,
+    estado varchar (64) default ("Existencias"),
+    constraint fk_productos_categoria foreign key (idCategoria)
+		references Categorias (idCategoria)
 );
 
 create table compras (
