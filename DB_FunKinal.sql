@@ -7,7 +7,7 @@ create table usuarios (
     nombre varchar(50),
     apellido varchar(50),
     correo varchar(100) unique,
-    contraseña varchar(100),
+    contrasena varchar(100),
     telefono varchar(20),
     estado varchar(64) default "Activo"
 );
