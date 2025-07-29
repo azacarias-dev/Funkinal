@@ -1,19 +1,16 @@
 package dao;
 
+import java.util.List;
 import javax.persistence.EntityManager;
 import javax.persistence.EntityManagerFactory;
 import javax.persistence.EntityTransaction;
 import javax.persistence.Persistence;
 import model.RecibosPojo;
 
-/**
- *
- * @author acord
- */
 public class RecibosDao {
-    
-    private EntityManagerFactory fabrica = Persistence.createEntityManagerFactory("funkinalPU");
-    
+
+    private EntityManagerFactory fabrica = Persistence.createEntityManagerFactory("libreriaPU");
+
     public void guardar(RecibosPojo recibo) {
         EntityManager admin = fabrica.createEntityManager();
         EntityTransaction transaccion = admin.getTransaction();
@@ -24,11 +21,21 @@ public class RecibosDao {
         } catch (Exception e) {
             if (transaccion.isActive()) transaccion.rollback();
             e.printStackTrace();
-        }finally {
+        } finally {
             admin.close();
         }
     }
-    
+
+    public List<RecibosPojo> listarTodos() {
+        String jpql = "SELECT r FROM Recibos r";
+        EntityManager admin = fabrica.createEntityManager();
+        try {
+            return admin.createQuery(jpql, RecibosPojo.class).getResultList();
+        } finally {
+            admin.close();
+        }
+    }
+
     public RecibosPojo buscarPorId(int id) {
         EntityManager admin = fabrica.createEntityManager();
         try {

@@ -1,87 +1,124 @@
-/*
- * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
- * Click nbfs://nbhost/SystemFileSystem/Templates/JSP_Servlet/Servlet.java to edit this template
- */
 package web;
 
+import dao.RecibosDao;
 import java.io.IOException;
-import java.io.PrintWriter;
+import java.math.BigDecimal;
+import java.sql.Timestamp;
+import java.util.List;
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import model.RecibosPojo;
 
-/**
- *
- * @author acord
- */
 @WebServlet(name = "ServletRecibos", urlPatterns = {"/ServletRecibos"})
 public class ServletRecibos extends HttpServlet {
 
-    /**
-     * Processes requests for both HTTP <code>GET</code> and <code>POST</code>
-     * methods.
-     *
-     * @param request servlet request
-     * @param response servlet response
-     * @throws ServletException if a servlet-specific error occurs
-     * @throws IOException if an I/O error occurs
-     */
-    protected void processRequest(HttpServletRequest request, HttpServletResponse response)
-            throws ServletException, IOException {
-        response.setContentType("text/html;charset=UTF-8");
-        try (PrintWriter out = response.getWriter()) {
-            /* TODO output your page here. You may use following sample code. */
-            out.println("<!DOCTYPE html>");
-            out.println("<html>");
-            out.println("<head>");
-            out.println("<title>Servlet ServletRecibos</title>");            
-            out.println("</head>");
-            out.println("<body>");
-            out.println("<h1>Servlet ServletRecibos at " + request.getContextPath() + "</h1>");
-            out.println("</body>");
-            out.println("</html>");
-        }
-    }
+    private RecibosDao recibosDao = new RecibosDao();
 
-    // <editor-fold defaultstate="collapsed" desc="HttpServlet methods. Click on the + sign on the left to edit the code.">
-    /**
-     * Handles the HTTP <code>GET</code> method.
-     *
-     * @param request servlet request
-     * @param response servlet response
-     * @throws ServletException if a servlet-specific error occurs
-     * @throws IOException if an I/O error occurs
-     */
     @Override
     protected void doGet(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
-        processRequest(request, response);
+
+        String action = request.getParameter("action");
+        if (action == null) action = "listar";
+
+        switch (action) {
+            case "listar":
+                listarRecibos(request, response);
+                break;
+            case "eliminar":
+                eliminarRecibo(request, response);
+                break;
+            case "editar":
+                mostrarFormularioEditar(request, response);
+                break;
+            default:
+                listarRecibos(request, response);
+                break;
+        }
     }
 
-    /**
-     * Handles the HTTP <code>POST</code> method.
-     *
-     * @param request servlet request
-     * @param response servlet response
-     * @throws ServletException if a servlet-specific error occurs
-     * @throws IOException if an I/O error occurs
-     */
     @Override
     protected void doPost(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
-        processRequest(request, response);
+
+        String action = request.getParameter("action");
+
+        switch (action) {
+            case "agregar":
+                agregarRecibo(request, response);
+                break;
+            case "actualizar":
+                actualizarRecibo(request, response);
+                break;
+            default:
+                listarRecibos(request, response);
+                break;
+        }
     }
 
-    /**
-     * Returns a short description of the servlet.
-     *
-     * @return a String containing servlet description
-     */
-    @Override
-    public String getServletInfo() {
-        return "Short description";
-    }// </editor-fold>
+    private void listarRecibos(HttpServletRequest request, HttpServletResponse response)
+            throws ServletException, IOException {
+        List<RecibosPojo> lista = recibosDao.listarTodos();
+        request.setAttribute("listaRecibos", lista);
+        request.getRequestDispatcher("Recibos.jsp").forward(request, response);
+    }
 
+    private void agregarRecibo(HttpServletRequest request, HttpServletResponse response)
+            throws ServletException, IOException {
+        try {
+            int idCompra = Integer.parseInt(request.getParameter("idCompra"));
+            Timestamp fechaEmision = Timestamp.valueOf(request.getParameter("fechaEmision"));
+            BigDecimal total = new BigDecimal(request.getParameter("total"));
+            String metodoPago = request.getParameter("metodoPago");
+            String estado = request.getParameter("estado");
+
+            RecibosPojo r = new RecibosPojo(idCompra, fechaEmision, total, metodoPago, estado);
+            recibosDao.guardar(r);
+
+            response.sendRedirect("ServletRecibos?action=listar");
+        } catch (Exception e) {
+            e.printStackTrace();
+            response.sendRedirect("ServletRecibos?action=listar");
+        }
+    }
+
+    private void mostrarFormularioEditar(HttpServletRequest request, HttpServletResponse response)
+            throws ServletException, IOException {
+        int idRecibo = Integer.parseInt(request.getParameter("idRecibo"));
+        RecibosPojo recibo = recibosDao.buscarPorId(idRecibo);
+        request.setAttribute("recibo", recibo);
+        request.getRequestDispatcher("RecibosEditar.jsp").forward(request, response);
+    }
+
+    private void actualizarRecibo(HttpServletRequest request, HttpServletResponse response)
+            throws ServletException, IOException {
+        try {
+            int idRecibo = Integer.parseInt(request.getParameter("idRecibo"));
+            int idCompra = Integer.parseInt(request.getParameter("idCompra"));
+            Timestamp fechaEmision = Timestamp.valueOf(request.getParameter("fechaEmision"));
+            BigDecimal total = new BigDecimal(request.getParameter("total"));
+            String metodoPago = request.getParameter("metodoPago");
+            String estado = request.getParameter("estado");
+
+            RecibosPojo r = new RecibosPojo(idCompra, fechaEmision, total, metodoPago, estado);
+            r.setIdRecibo(idRecibo);
+
+            recibosDao.Actualizar(r);
+
+            response.sendRedirect("ServletRecibos?action=listar");
+        } catch (Exception e) {
+            e.printStackTrace();
+            response.sendRedirect("ServletRecibos?action=listar");
+        }
+    }
+
+    private void eliminarRecibo(HttpServletRequest request, HttpServletResponse response)
+            throws ServletException, IOException {
+        int idRecibo = Integer.parseInt(request.getParameter("idRecibo"));
+        recibosDao.Eliminar(idRecibo);
+        response.sendRedirect("ServletRecibos?action=listar");
+    }
 }
