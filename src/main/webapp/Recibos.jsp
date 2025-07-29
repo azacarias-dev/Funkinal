@@ -29,7 +29,7 @@
                 </thead>
                 <tbody>
                     <%
-                        List<RecibosPojo> listaCategorias = (List<RecibosPojo>) request.getAttribute("listaCategorias");
+                        List<RecibosPojo> listaCategorias = (List<RecibosPojo>) request.getAttribute("listaRecibos");
                         if (listaCategorias != null && !listaCategorias.isEmpty()) {
                             for (RecibosPojo cat : listaCategorias) {
                     %>
@@ -43,7 +43,7 @@
                         <td>
                             <a href="ServletRecibos?accion=editar&id=<%= cat.getIdRecibo()%>" class="btn btn-warning btn-sm">Editar</a>
                             <a href="ServletRecibos?accion=eliminar&id=<%= cat.getIdRecibo()%>" class="btn btn-danger btn-sm"
-                               onclick="return confirm('¿Desea eliminar esta categoría?')">Eliminar</a>
+                               onclick="return confirm('¿Desea eliminar este Recibo?')">Eliminar</a>
                         </td>
                     </tr>
                     <%

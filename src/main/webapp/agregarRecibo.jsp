@@ -29,11 +29,15 @@
 
                     <div class="mb-3">
                         <label class="form-label">Metodo Pago:</label>
-                        <textarea name="metodoPago" class="form-control" rows="4"></textarea>
+                        <select id="metodo_pago" name="metodo_pago" required>
+                            <option value="">Seleccione</option>
+                            <option value="efectivo">Efectivo</option>
+                            <option value="tarjeta">Tarjeta</option>
+                        </select>
                     </div>
 
                     <button type="submit" class="btn btn-success">Guardar</button>
-                    <a href="CategoriaServlet?accion=listar" class="btn btn-secondary">Cancelar</a>
+                    <a href="ServletRecibos?accion=listar" class="btn btn-secondary">Cancelar</a>
                 </form>
             </div>
         </div>

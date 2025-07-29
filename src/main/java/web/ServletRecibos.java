@@ -75,7 +75,7 @@ public class ServletRecibos extends HttpServlet {
             String metodoPago = request.getParameter("metodoPago");
             String estado = request.getParameter("estado");
 
-            RecibosPojo r = new RecibosPojo(idCompra, fechaEmision, total, metodoPago, estado);
+            RecibosPojo r = new RecibosPojo(idCompra, total, metodoPago, estado);
             recibosDao.guardar(r);
 
             response.sendRedirect("ServletRecibos?action=listar");
@@ -90,7 +90,7 @@ public class ServletRecibos extends HttpServlet {
         int idRecibo = Integer.parseInt(request.getParameter("idRecibo"));
         RecibosPojo recibo = recibosDao.buscarPorId(idRecibo);
         request.setAttribute("recibo", recibo);
-        request.getRequestDispatcher("RecibosEditar.jsp").forward(request, response);
+        request.getRequestDispatcher("editarRecibo.jsp").forward(request, response);
     }
 
     private void actualizarRecibo(HttpServletRequest request, HttpServletResponse response)
@@ -103,7 +103,7 @@ public class ServletRecibos extends HttpServlet {
             String metodoPago = request.getParameter("metodoPago");
             String estado = request.getParameter("estado");
 
-            RecibosPojo r = new RecibosPojo(idCompra, fechaEmision, total, metodoPago, estado);
+            RecibosPojo r = new RecibosPojo(idCompra, total, metodoPago, estado);
             r.setIdRecibo(idRecibo);
 
             recibosDao.Actualizar(r);

@@ -26,7 +26,7 @@ public class RecibosPojo {
     @Column(name = "total", nullable = false)
     private BigDecimal total;
 
-    @Column(name = "metodoPago", nullable = false)
+    @Column(name = "metodoPago", nullable = false, updatable = false)
     private String metodoPago;
 
     @Column(name = "estado")
@@ -35,9 +35,8 @@ public class RecibosPojo {
     public RecibosPojo() {
     }
 
-    public RecibosPojo(int idCompra, Timestamp fechaEmision, BigDecimal total, String metodoPago, String estado) {
+    public RecibosPojo(int idCompra, BigDecimal total, String metodoPago, String estado) {
         this.idCompra = idCompra;
-        this.fechaEmision = fechaEmision;
         this.total = total;
         this.metodoPago = metodoPago;
         this.estado = estado;
@@ -90,4 +89,7 @@ public class RecibosPojo {
     public void setEstado(String estado) {
         this.estado = estado;
     }
+    
+    
+
 }
