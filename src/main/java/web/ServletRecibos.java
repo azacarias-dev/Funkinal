@@ -100,7 +100,7 @@ public class ServletRecibos extends HttpServlet {
         int idRecibo = Integer.parseInt(request.getParameter("idRecibo"));
         RecibosPojo recibo = recibosDao.buscarPorId(idRecibo);
         request.setAttribute("recibo", recibo);  
-        request.getRequestDispatcher("vistas/editarRecibo.jsp").forward(request, response);
+        request.getRequestDispatcher("editarRecibo.jsp").forward(request, response);
     }
 
 
@@ -109,18 +109,13 @@ private void actualizarRecibo(HttpServletRequest request, HttpServletResponse re
     try {
         int idRecibo = Integer.parseInt(request.getParameter("idRecibo"));
         int idCompra = Integer.parseInt(request.getParameter("idCompra"));
-
-        String fechaParam = request.getParameter("fechaEmision");
-        Timestamp fechaEmision;
-        if (fechaParam == null || fechaParam.isEmpty()) {
-            fechaEmision = new Timestamp(System.currentTimeMillis());
-        } else {
-            fechaEmision = Timestamp.valueOf(fechaParam);
-        }
-
         BigDecimal total = new BigDecimal(request.getParameter("total"));
         String metodoPago = request.getParameter("metodoPago");
         String estado = request.getParameter("estado");
+
+        // Obtener fecha original para no perderla
+        RecibosPojo existente = recibosDao.buscarPorId(idRecibo);
+        Timestamp fechaEmision = (existente != null) ? existente.getFechaEmision() : new Timestamp(System.currentTimeMillis());
 
         RecibosPojo r = new RecibosPojo(idCompra, total, metodoPago, estado);
         r.setIdRecibo(idRecibo);

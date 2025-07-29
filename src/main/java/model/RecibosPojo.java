@@ -26,7 +26,7 @@ public class RecibosPojo {
     @Column(name = "total", nullable = false)
     private BigDecimal total;
 
-    @Column(name = "metodoPago", nullable = false, updatable = false)
+@Column(name = "metodoPago", nullable = false)
     private String metodoPago;
 
     @Column(name = "estado")
