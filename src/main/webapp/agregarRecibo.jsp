@@ -29,11 +29,7 @@
 
                     <div class="mb-3">
                         <label class="form-label">Metodo Pago:</label>
-                        <select id="metodo_pago" name="metodo_pago" required>
-                            <option value="">Seleccione</option>
-                            <option value="efectivo">Efectivo</option>
-                            <option value="tarjeta">Tarjeta</option>
-                        </select>
+                        <input type="text" name="metodoPago" class="form-control" required>
                     </div>
 
                     <button type="submit" class="btn btn-success">Guardar</button>

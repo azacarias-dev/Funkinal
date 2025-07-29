@@ -29,9 +29,9 @@
                 </thead>
                 <tbody>
                     <%
-                        List<RecibosPojo> listaCategorias = (List<RecibosPojo>) request.getAttribute("listaRecibos");
-                        if (listaCategorias != null && !listaCategorias.isEmpty()) {
-                            for (RecibosPojo cat : listaCategorias) {
+                        List<RecibosPojo> listaRecibos = (List<RecibosPojo>) request.getAttribute("listaRecibos");
+                        if (listaRecibos != null && !listaRecibos.isEmpty()) {
+                            for (RecibosPojo cat : listaRecibos) {
                     %>
                     <tr>
                         <td><%= cat.getIdRecibo()%></td>
