@@ -5,7 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <title>Lista de Categorías</title>
     
-    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="styles/categorias.css">
 </head>
 
 <body>
@@ -29,8 +29,8 @@
                     <td><></td>
                     <td><></td>
                     <td>
-                        <a href="CategoriaServlet?accion=editar&id=<%= cat.getIdCategoria() %>" class="btn btn-warning btn-sm">Editar</a>
-                           onclick="return confirm('¿Desea eliminar esta categoría?')">Eliminar</a>
+                        <a href="" class="btn btn-warning btn-sm">Editar</a>
+                           <a href="" class="btn btn-danger btn-sm">Eliminar</a>
                     </td>
                 </tr>
                 <tr>
