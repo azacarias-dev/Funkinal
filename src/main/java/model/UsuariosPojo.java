@@ -20,6 +20,8 @@ public class UsuariosPojo {
     private int idUsuario;
     @Column(name = "nombre")
     private String nombre;
+    @Column(name = "rol")
+    private String rol;
     @Column(name = "apellido")
     private String apellido;
     @Column(name = "correo")
@@ -28,6 +30,8 @@ public class UsuariosPojo {
     private String contrasena;
     @Column(name = "telefono")
     private String telefono;
+    @Column(name = "estado")
+    private String estado;
 
     public UsuariosPojo(String nombre, String apellido, String correo, String contrasena, String telefono) {
         this.nombre = nombre;
@@ -35,6 +39,16 @@ public class UsuariosPojo {
         this.correo = correo;
         this.contrasena = contrasena;
         this.telefono = telefono;
+    }
+
+    public UsuariosPojo(String nombre, String rol, String apellido, String correo, String contrasena, String telefono, String estado) {
+        this.nombre = nombre;
+        this.rol = rol;
+        this.apellido = apellido;
+        this.correo = correo;
+        this.contrasena = contrasena;
+        this.telefono = telefono;
+        this.estado = estado;
     }
 
     public UsuariosPojo() {   
