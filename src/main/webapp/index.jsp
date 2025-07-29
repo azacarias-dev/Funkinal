@@ -24,7 +24,7 @@
 
             <div class="container-botones">
                 <button class="btns" onclick="location.href='login.jsp'"><span> Iniciar Sesion </span> </button>
-                <button class="btns" onclick="location.href='registrar.jsp'"><span> Registrarse </span> </button>
+                <button class="btns" onclick="location.href='compraseditar.jsp'"><span> Registrarse </span> </button>
             </div>
         </div>
 
