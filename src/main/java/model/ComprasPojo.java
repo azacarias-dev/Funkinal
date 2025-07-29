@@ -1,23 +1,45 @@
 package model;
 
+import java.io.Serializable;
 import java.math.BigDecimal;
 import java.util.Date;
+import javax.persistence.Column;
+import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
+import javax.persistence.Id;
+import javax.persistence.Table;
+import javax.persistence.Temporal;
+import javax.persistence.TemporalType;
 
+@Entity
+@Table(name = "compras")
+public class ComprasPojo implements Serializable {
 
-public class ComprasPojo {
-
+    @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    @Column(name = "id_compra")
     private int idCompra;
+
+    @Column(name = "id_usuario")
     private int idUsuario;
+
+    @Temporal(TemporalType.DATE)
+    @Column(name = "fecha_compra")
     private Date fechaCompra;
+
+    @Column(name = "total")
     private BigDecimal total;
+
+    @Column(name = "metodo_pago")
     private String metodoPago;
+
+    @Column(name = "estado")
     private String estado;
 
-    // Constructor vacío
     public ComprasPojo() {
     }
 
-    // Constructor con lleno
     public ComprasPojo(int idCompra, int idUsuario, Date fechaCompra, BigDecimal total, String metodoPago, String estado) {
         this.idCompra = idCompra;
         this.idUsuario = idUsuario;
@@ -31,11 +53,10 @@ public class ComprasPojo {
         this.idUsuario = idUsuario;
         this.total = total;
         this.metodoPago = metodoPago;
-        this.fechaCompra = new Date(); 
-        this.estado = "Sin pagar"; 
+        this.fechaCompra = new Date();
+        this.estado = "Sin pagar";
     }
 
-    // Getters y Setters
     public int getIdCompra() {
         return idCompra;
     }
@@ -87,12 +108,12 @@ public class ComprasPojo {
     @Override
     public String toString() {
         return "ComprasPojo{" +
-               "idCompra=" + idCompra +
-               ", idUsuario=" + idUsuario +
-               ", fechaCompra=" + fechaCompra +
-               ", total=" + total +
-               ", metodoPago='" + metodoPago + '\'' +
-               ", estado='" + estado + '\'' +
-               '}';
+                "idCompra=" + idCompra +
+                ", idUsuario=" + idUsuario +
+                ", fechaCompra=" + fechaCompra +
+                ", total=" + total +
+                ", metodoPago='" + metodoPago + '\'' +
+                ", estado='" + estado + '\'' +
+                '}';
     }
 }
