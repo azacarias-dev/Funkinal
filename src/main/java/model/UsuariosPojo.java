@@ -101,4 +101,21 @@ public class UsuariosPojo {
     public void setContrasena(String contraseña) {
         this.contrasena = contraseña;
     }
+
+    public String getRol() {
+        return rol;
+    }
+
+    public void setRol(String rol) {
+        this.rol = rol;
+    }
+
+    public String getEstado() {
+        return estado;
+    }
+
+    public void setEstado(String estado) {
+        this.estado = estado;
+    }
+    
 }
