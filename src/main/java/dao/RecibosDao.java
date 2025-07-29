@@ -9,7 +9,7 @@ import model.RecibosPojo;
 
 public class RecibosDao {
 
-    private EntityManagerFactory fabrica = Persistence.createEntityManagerFactory("libreriaPU");
+    private EntityManagerFactory fabrica = Persistence.createEntityManagerFactory("funkinalPU");
 
     public void guardar(RecibosPojo recibo) {
         EntityManager admin = fabrica.createEntityManager();

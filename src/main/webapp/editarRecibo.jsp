@@ -19,7 +19,7 @@
 <body>
     <div class="container mt-4">
         <h2>Editar Categoría</h2>
-        <form action="CategoriaServlet" method="post">
+        <form action="ServletRecibos" method="post">
             <input type="hidden" name="accion" value="actualizar">
             <input type="hidden" name="id" value="<%= recibo.getIdRecibo()%>">
 
@@ -37,7 +37,7 @@
             </div>
 
             <button type="submit" class="btn btn-success">Actualizar</button>
-            <a href="CategoriaServlet?accion=listar" class="btn btn-secondary">Cancelar</a>
+            <a href="ServletRecibos?accion=listar" class="btn btn-secondary">Cancelar</a>
         </form>
     </div>
 </body>

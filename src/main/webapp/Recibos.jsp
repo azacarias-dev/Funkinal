@@ -14,7 +14,7 @@
         <div class="container mt-4">
             <h2 class="mb-4 text-center">Lista de Recibos</h2>
             <div class="mb-3 text-end">
-                <a href="agregarCategoria.jsp" class="btn btn-primary">Nuevo Recibo</a>
+                <a href="agregarRecibo.jsp" class="btn btn-primary">Nuevo Recibo</a>
             </div>
             <table class="table table-striped table-bordered table-hover">
                 <thead class="table-dark">

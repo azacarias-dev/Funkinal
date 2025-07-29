@@ -23,7 +23,8 @@
 
                     <div class="mb-3">
                         <label class="form-label">Total:</label>
-                        <textarea name="total" class="form-control" rows="4"></textarea>
+                        <input type="number" name="total" class="form-control" required>
+                        
                     </div>
 
                     <div class="mb-3">
