@@ -67,53 +67,74 @@ public class ServletRecibos extends HttpServlet {
     }
 
     private void agregarRecibo(HttpServletRequest request, HttpServletResponse response)
-            throws ServletException, IOException {
-        try {
-            int idCompra = Integer.parseInt(request.getParameter("idCompra"));
-            Timestamp fechaEmision = Timestamp.valueOf(request.getParameter("fechaEmision"));
-            BigDecimal total = new BigDecimal(request.getParameter("total"));
-            String metodoPago = request.getParameter("metodoPago");
-            String estado = request.getParameter("estado");
+        throws ServletException, IOException {
+    try {
+        int idCompra = Integer.parseInt(request.getParameter("idCompra"));
 
-            RecibosPojo r = new RecibosPojo(idCompra, total, metodoPago, estado);
-            recibosDao.guardar(r);
-
-            response.sendRedirect("ServletRecibos?action=listar");
-        } catch (Exception e) {
-            e.printStackTrace();
-            response.sendRedirect("ServletRecibos?action=listar");
+        String fechaParam = request.getParameter("fechaEmision");
+        Timestamp fechaEmision;
+        if (fechaParam == null || fechaParam.isEmpty()) {
+            fechaEmision = new Timestamp(System.currentTimeMillis());
+        } else {
+            fechaEmision = Timestamp.valueOf(fechaParam);
         }
+
+        BigDecimal total = new BigDecimal(request.getParameter("total"));
+        String metodoPago = request.getParameter("metodoPago");
+        String estado = request.getParameter("estado");
+
+        RecibosPojo r = new RecibosPojo(idCompra, total, metodoPago, estado);
+        r.setFechaEmision(fechaEmision); 
+
+        recibosDao.guardar(r);
+
+        response.sendRedirect("ServletRecibos?action=listar");
+    } catch (Exception e) {
+        e.printStackTrace();
+        response.sendRedirect("ServletRecibos?action=listar");
     }
+}
 
     private void mostrarFormularioEditar(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
         int idRecibo = Integer.parseInt(request.getParameter("idRecibo"));
         RecibosPojo recibo = recibosDao.buscarPorId(idRecibo);
-        request.setAttribute("recibo", recibo);
-        request.getRequestDispatcher("editarRecibo.jsp").forward(request, response);
+        request.setAttribute("recibo", recibo);  
+        request.getRequestDispatcher("vistas/editarRecibo.jsp").forward(request, response);
     }
 
-    private void actualizarRecibo(HttpServletRequest request, HttpServletResponse response)
-            throws ServletException, IOException {
-        try {
-            int idRecibo = Integer.parseInt(request.getParameter("idRecibo"));
-            int idCompra = Integer.parseInt(request.getParameter("idCompra"));
-            Timestamp fechaEmision = Timestamp.valueOf(request.getParameter("fechaEmision"));
-            BigDecimal total = new BigDecimal(request.getParameter("total"));
-            String metodoPago = request.getParameter("metodoPago");
-            String estado = request.getParameter("estado");
 
-            RecibosPojo r = new RecibosPojo(idCompra, total, metodoPago, estado);
-            r.setIdRecibo(idRecibo);
+private void actualizarRecibo(HttpServletRequest request, HttpServletResponse response)
+        throws ServletException, IOException {
+    try {
+        int idRecibo = Integer.parseInt(request.getParameter("idRecibo"));
+        int idCompra = Integer.parseInt(request.getParameter("idCompra"));
 
-            recibosDao.Actualizar(r);
-
-            response.sendRedirect("ServletRecibos?action=listar");
-        } catch (Exception e) {
-            e.printStackTrace();
-            response.sendRedirect("ServletRecibos?action=listar");
+        String fechaParam = request.getParameter("fechaEmision");
+        Timestamp fechaEmision;
+        if (fechaParam == null || fechaParam.isEmpty()) {
+            fechaEmision = new Timestamp(System.currentTimeMillis());
+        } else {
+            fechaEmision = Timestamp.valueOf(fechaParam);
         }
+
+        BigDecimal total = new BigDecimal(request.getParameter("total"));
+        String metodoPago = request.getParameter("metodoPago");
+        String estado = request.getParameter("estado");
+
+        RecibosPojo r = new RecibosPojo(idCompra, total, metodoPago, estado);
+        r.setIdRecibo(idRecibo);
+        r.setFechaEmision(fechaEmision);
+
+        recibosDao.Actualizar(r);
+
+        response.sendRedirect("ServletRecibos?action=listar");
+    } catch (Exception e) {
+        e.printStackTrace();
+        response.sendRedirect("ServletRecibos?action=listar");
     }
+}
+
 
     private void eliminarRecibo(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {

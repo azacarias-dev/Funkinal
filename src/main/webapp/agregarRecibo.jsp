@@ -14,7 +14,7 @@
             <div class="col-md-6">
                 <h2 class="mb-4">Agregar Nuevo Recibo</h2>
                 <form action="ServletRecibos" method="post">
-                    <input type="hidden" name="accion" value="insertar">
+                    <input type="hidden" name="action" value="agregar">
 
                     <div class="mb-3">
                         <label class="form-label">IDCompra:</label>

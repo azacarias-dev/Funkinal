@@ -41,8 +41,8 @@
                         <td><%= cat.getMetodoPago()%></td>
                         <td><%= cat.getEstado()%></td>
                         <td>
-                            <a href="ServletRecibos?accion=editar&id=<%= cat.getIdRecibo()%>" class="btn btn-warning btn-sm">Editar</a>
-                            <a href="ServletRecibos?accion=eliminar&id=<%= cat.getIdRecibo()%>" class="btn btn-danger btn-sm"
+                            <a href="ServletRecibos?action=editar&idRecibo=<%= cat.getIdRecibo()%>" class="btn btn-warning btn-sm">Editar</a>
+                            <a href="ServletRecibos?action=eliminar&idRecibo=<%= cat.getIdRecibo()%>" class="btn btn-danger btn-sm"
                                onclick="return confirm('¿Desea eliminar este Recibo?')">Eliminar</a>
                         </td>
                     </tr>
@@ -51,7 +51,7 @@
                     } else {
                     %>
                     <tr>
-                        <td colspan="4" class="text-center">No hay categorías registradas.</td>
+                        <td colspan="4" class="text-center">Recibos</td>
                     </tr>
                     <%
                         }

@@ -27,7 +27,7 @@ public class RecibosDao {
     }
 
     public List<RecibosPojo> listarTodos() {
-        String jpql = "SELECT r FROM Recibos r";
+        String jpql = "SELECT r FROM RecibosPojo r";
         EntityManager admin = fabrica.createEntityManager();
         try {
             return admin.createQuery(jpql, RecibosPojo.class).getResultList();
