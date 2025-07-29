@@ -1,7 +1,7 @@
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
-<%@page import="model.Categoria"%>
+<%@page import="model.CategoriasPojo"%>
 <%
-    Categoria categoria = (Categoria) request.getAttribute("categoriaEditar");
+    CategoriasPojo categoria = (CategoriasPojo) request.getAttribute("categoriaEditar");
 %>
 <!DOCTYPE html>
 <html>

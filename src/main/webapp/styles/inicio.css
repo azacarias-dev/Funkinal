@@ -1156,5 +1156,106 @@ body {
     display: none;
 }
 
+/* From Uiverse.io by gharsh11032000 */ 
+.buttone {
+  cursor: pointer;
+  position: relative;
+  padding: 30px 50px;
+  font-size: 18px;
+  color: rgb(193, 163, 98);
+  border: 2px solid rgb(193, 163, 98);
+  border-radius: 34px;
+  background-color: transparent;
+  font-weight: 600;
+  transition: all 0.3s cubic-bezier(0.23, 1, 0.320, 1);
+  overflow: hidden;
+  margin: 8px; /* Espacio entre botones */
+}
+
+.buttone::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  margin: auto;
+  width: 50px;
+  height: 50px;
+  border-radius: inherit;
+  scale: 0;
+  z-index: -1;
+  background-color: rgb(193, 163, 98);
+  transition: all 0.6s cubic-bezier(0.23, 1, 0.320, 1);
+}
+
+.buttone:hover::before {
+  scale: 3;
+}
+
+.buttone:hover {
+  color: #212121;
+  scale: 1.1;
+  box-shadow: 0 0px 20px rgba(193, 163, 98, 0.4);
+}
+
+.buttone:active {
+  scale: 1;
+}
+
+/* Contenedor de botones */
+.buttone-container {
+  display: flex;
+  flex-wrap: wrap; /* Permite que los botones se ajusten a nuevas líneas */
+  justify-content: center; /* Centra los botones en el contenedor */
+  align-items: center;
+  gap: 16px; /* Espacio entre los botones */
+  padding: 20px;
+}
+
+/* Responsividad: ajustar el tamaño de los botones en pantallas pequeñas */
+@media (max-width: 768px) {
+  .buttone {
+    font-size: 16px; /* Reducir el tamaño de la fuente */
+    padding: 10px 25px; /* Reducir el tamaño del padding */
+  }
+  
+  /* Contenedor de botones */
+  .buttone-container {
+    position: relative;
+    top: 50px; /* Mover el contenedor a 250px desde el borde superior */
+  }
+}
 
 
+.footer2 {
+    background-color: #1e1e1e;
+    position: absolute;
+    width: 100%;
+    bottom: 0%;
+    color: white;
+    text-align: center;
+    padding: 20px 10px;
+    font-size: 14px;
+    margin-top: 20px;
+    border-top: 2px solid #444;
+}
+
+.footer-contenido2 p {
+    margin: 5px 0;
+}
+
+.Ajuste {
+    font-size: 15px;
+    position: relative;
+    top: 15px;
+    color: #353535;
+    text-align: center;
+    padding: 10px;
+}
+
+@media (max-width: 850px) {
+    .Ajuste {
+        position: relative;
+        top:45px;
+        font-size: 10px;
+        padding: 10px;
+    }
+}

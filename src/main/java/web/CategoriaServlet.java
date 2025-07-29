@@ -1,7 +1,7 @@
 package web;
 
-import dao.CategoriaDao;
-import model.Categoria;
+import dao.CategoriasDao;
+import model.CategoriasPojo;
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.*;
@@ -17,18 +17,18 @@ public class CategoriaServlet extends HttpServlet {
         String accion = request.getParameter("accion");
         if (accion == null) accion = "listar";
 
-        CategoriaDao dao = new CategoriaDao();
+        CategoriasDao dao = new CategoriasDao();
 
         switch (accion) {
             case "listar":
-                List<Categoria> lista = dao.listarTodas();
+                List<CategoriasPojo> lista = dao.listarTodas();
                 request.setAttribute("listaCategorias", lista);
-                request.getRequestDispatcher("listarCategorias.jsp").forward(request, response);
+                request.getRequestDispatcher("Categorias.jsp").forward(request, response);
                 break;
 
             case "editar":
                 int idEditar = Integer.parseInt(request.getParameter("id"));
-                Categoria categoriaEditar = dao.buscarPorId(idEditar);
+                CategoriasPojo categoriaEditar = dao.buscarPorId(idEditar);
                 request.setAttribute("categoriaEditar", categoriaEditar);
                 request.getRequestDispatcher("editarCategoria.jsp").forward(request, response);
                 break;
@@ -48,11 +48,11 @@ public class CategoriaServlet extends HttpServlet {
             throws ServletException, IOException {
 
         String accion = request.getParameter("accion");
-        CategoriaDao dao = new CategoriaDao();
+        CategoriasDao dao = new CategoriasDao();
 
         switch (accion) {
             case "insertar":
-                Categoria nueva = new Categoria();
+                CategoriasPojo nueva = new CategoriasPojo();
                 nueva.setNombre(request.getParameter("nombre"));
                 nueva.setDescripcion(request.getParameter("descripcion"));
                 dao.guardar(nueva);
@@ -61,7 +61,7 @@ public class CategoriaServlet extends HttpServlet {
 
             case "actualizar":
                 int idActualizar = Integer.parseInt(request.getParameter("id"));
-                Categoria categoria = dao.buscarPorId(idActualizar);
+                CategoriasPojo categoria = dao.buscarPorId(idActualizar);
                 categoria.setNombre(request.getParameter("nombre"));
                 categoria.setDescripcion(request.getParameter("descripcion"));
                 dao.actualizar(categoria);

@@ -1,5 +1,5 @@
 <%@page import="java.util.List"%>
-<%@page import="model.Categoria"%>
+<%@page import="model.CategoriasPojo"%>
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 <!DOCTYPE html>
 <html lang="es">
@@ -27,9 +27,9 @@
                 </thead>
                 <tbody>
                     <%
-                        List<Categoria> listaCategorias = (List<Categoria>) request.getAttribute("listaCategorias");
+                        List<CategoriasPojo> listaCategorias = (List<CategoriasPojo>) request.getAttribute("listaCategorias");
                         if (listaCategorias != null && !listaCategorias.isEmpty()) {
-                            for (Categoria cat : listaCategorias) {
+                            for (CategoriasPojo cat : listaCategorias) {
                     %>
                     <tr>
                         <td><%= cat.getIdCategoria()%></td>
