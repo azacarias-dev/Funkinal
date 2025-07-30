@@ -4,6 +4,7 @@ import dao.RecibosDao;
 import java.io.IOException;
 import java.math.BigDecimal;
 import java.sql.Timestamp;
+import java.util.ArrayList;
 import java.util.List;
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
@@ -62,6 +63,9 @@ public class ServletRecibos extends HttpServlet {
     private void listarRecibos(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
         List<RecibosPojo> lista = recibosDao.listarTodos();
+        if (lista == null) {
+            lista = new ArrayList<>();
+        }
         request.setAttribute("listaRecibos", lista);
         request.getRequestDispatcher("Recibos.jsp").forward(request, response);
     }
