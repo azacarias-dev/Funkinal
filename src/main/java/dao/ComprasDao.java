@@ -30,7 +30,7 @@ public class ComprasDao {
     }
 
     public List<ComprasPojo> listarTodas() {
-        String jpql = "SELECT c FROM Compras c";
+        String jpql = "SELECT c FROM ComprasPojo c";
         EntityManager admin = fabrica.createEntityManager();
         try {
             return admin.createQuery(jpql, ComprasPojo.class).getResultList();

@@ -16,7 +16,7 @@
         <div class="container mt-4">
             <h2 class="mb-4 text-center">Lista de Compras</h2>
             <div class="mb-3 text-end">
-                <a href="agregarCompra.jsp" class="btn btn-primary">Nueva Compra</a>
+                <a href="agregarCompras.jsp" class="btn btn-primary">Nueva Compra</a>
             </div>
             <table class="table table-striped table-bordered table-hover">
                 <thead class="table-dark">

@@ -18,20 +18,20 @@ public class ComprasPojo implements Serializable {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    @Column(name = "id_compra")
+    @Column(name = "idCompra")
     private int idCompra;
 
-    @Column(name = "id_usuario")
+    @Column(name = "idusuario")
     private int idUsuario;
 
     @Temporal(TemporalType.DATE)
-    @Column(name = "fecha_compra")
+    @Column(name = "fechaCompra")
     private Date fechaCompra;
 
     @Column(name = "total")
     private BigDecimal total;
 
-    @Column(name = "metodo_pago")
+    @Column(name = "metodoPago")
     private String metodoPago;
 
     @Column(name = "estado")

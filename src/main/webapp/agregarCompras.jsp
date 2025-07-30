@@ -12,8 +12,8 @@
     <div class="container mt-5">
         <div class="row justify-content-center">
             <div class="col-md-6">
-                <h2 class="mb-4">Agregar Nueva Categoría</h2>
-                <form action="CompraServlet" method="post">
+                <h2 class="mb-4">Agregar Nueva Compra</h2>
+                <form action="ServletCompras" method="post">
                     <input type="hidden" name="accion" value="insertar">
 
                     <div class="mb-3">
@@ -52,7 +52,7 @@
                     </div>
 
                     <button type="submit" class="btn btn-success">Guardar</button>
-                    <a href="CompraServlet?accion=listar" class="btn btn-secondary">Cancelar</a>
+                    <a href="ServletCompras?accion=listar" class="btn btn-secondary">Cancelar</a>
                 </form>
             </div>
         </div>
