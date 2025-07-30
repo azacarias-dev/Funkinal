@@ -9,7 +9,7 @@ create table usuarios (
     correo varchar(100) unique,
     contraseña varchar(100),
     telefono varchar(20),
-    estado varchar(64) default 'Activo'
+    estado varchar(64) default "Activo"
 );
 
 create table productos (
@@ -18,7 +18,7 @@ create table productos (
     precio decimal(10,2),
     descripcion text,
     stock int,
-    estado varchar (64) default 'Existencias'
+    estado varchar (64) default ("Existencias")
 );
 
 create table categorias (
@@ -51,8 +51,8 @@ create table compras (
     idUsuario int,
     fechaCompra datetime,
     total decimal(10,2),
-    metodoPago enum ('Efectivo','Tarjeta'),
-    estado varchar (64) default 'Sin pagar',
+    metodoPago enum ("Efectivo","Tarjeta"),
+    estado varchar (64) default ("Sin pagar"),
     foreign key (idUsuario) references usuarios(idUsuario)
 );
 
@@ -71,7 +71,7 @@ create table administradores (
     nombre varchar(100),
     correo varchar(100) unique,
     contraseña varchar(100),
-    estado varchar(64) default 'Activo'
+    estado varchar(64) default("Activo")
 );
 
-select * from productos;
+select * from Usuarios;
