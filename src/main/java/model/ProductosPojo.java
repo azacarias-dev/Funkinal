@@ -18,16 +18,33 @@ public class ProductosPojo {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private int idProducto;
+
+    @Column(name = "idCategoria")
+    private int idCategoria; 
+
     @Column(name = "nombre")
     private String nombre;
+
     @Column(name = "precio")
     private double precio;
+
     @Column(name = "descripcion")
     private String descripcion;
+
     @Column(name = "stock")
     private int stock;
+
     @Column(name = "estado")
     private String estado;
+
+    public ProductosPojo(int idCategoria, String nombre, double precio, String descripcion, int stock, String estado) {
+        this.idCategoria = idCategoria;
+        this.nombre = nombre;
+        this.precio = precio;
+        this.descripcion = descripcion;
+        this.stock = stock;
+        this.estado = estado;
+    }
 
     public ProductosPojo(String nombre, double precio, String descripcion, int stock, String estado) {
         this.nombre = nombre;
@@ -46,6 +63,14 @@ public class ProductosPojo {
 
     public void setIdProducto(int idProducto) {
         this.idProducto = idProducto;
+    }
+
+    public int getIdCategoria() {
+        return idCategoria;
+    }
+
+    public void setIdCategoria(int idCategoria) {
+        this.idCategoria = idCategoria;
     }
 
     public String getNombre() {

@@ -1,4 +1,5 @@
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
+<%@page import="java.util.List"%>
 <%@page import="model.ProductosPojo"%>
 <%
     ProductosPojo producto = (ProductosPojo) request.getAttribute("productoEditar");
@@ -24,6 +25,12 @@
             <input type="hidden" name="idProducto" value="<%= producto.getIdProducto() %>">
 
             <div class="mb-3">
+                <label for="idCategoria" class="form-label">Categoría:</label>
+                <select id="idCategoria" name="idCategoria" class="form-select" required>
+                    <option value="">Seleccione una categoría</option>
+                </select>
+            </div>
+            <div class="mb-3">
                 <label for="nombre" class="form-label">Nombre:</label>
                 <input type="text" id="nombre" name="nombre" value="<%= producto.getNombre() %>" class="form-control" required>
             </div>
@@ -37,7 +44,7 @@
             </div>
             <div class="mb-3">
                 <label for="stock" class="form-label">Stock:</label>
-                <input type="number" id="stock" name="stock" value="<%= producto.getStock() %>" class="form-control" required>
+                <input type="number" id="stock" name="stock" value="<%= producto.getStock() %>" class="form-control" min="0" required>
             </div>
             <div class="mb-3">
                 <label for="estado" class="form-label">Estado:</label>
