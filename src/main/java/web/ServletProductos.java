@@ -30,7 +30,7 @@ public class ServletProductos extends HttpServlet {
             case "listar":
                 List<ProductosPojo> lista = dao.listarTodas();
                 request.setAttribute("listaProductos", lista);
-                request.getRequestDispatcher("listarProductos.jsp").forward(request, response);
+                request.getRequestDispatcher("productos.jsp").forward(request, response);
                 break;
  
             case "editar":
