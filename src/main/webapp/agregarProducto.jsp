@@ -5,7 +5,7 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <title>Agregar Producto</title>
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.7/dist/css/bootstrap.min.css" rel="stylesheet" crossorigin="anonymous">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" xintegrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
     <link rel="stylesheet" href="styles/productos.css">
 </head>
 <body>
@@ -16,6 +16,13 @@
                 <h2 class="mb-4">Agregar Nuevo Producto</h2>
                 <form action="ServletProductos" method="post">
                     <input type="hidden" name="accion" value="insertar">
+
+                    <div class="mb-3">
+                        <label for="idCategoria" class="form-label">Categoría:</label>
+                        <select id="idCategoria" name="idCategoria" class="form-select" required>
+                            <option value="">Seleccione una categoría</option>
+                        </select>
+                    </div>
 
                     <div class="mb-3">
                         <label for="nombre" class="form-label">Nombre:</label>
@@ -34,14 +41,12 @@
 
                     <div class="mb-3">
                         <label for="stock" class="form-label">Stock:</label>
-                        <input type="number" id="stock" name="stock" class="form-control" required>
+                        <input type="number" id="stock" name="stock" class="form-control" min="0" required>
                     </div>
 
                     <div class="mb-3">
                         <label for="estado" class="form-label">Estado:</label>
-                        
                         <input type="hidden" id="estado" name="estado" value="Existencias">
-                        
                         <input type="text" class="form-control" value="Existencias" readonly>
                     </div>
 
@@ -52,6 +57,6 @@
         </div>
     </div>
 
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.7/dist/js/bootstrap.bundle.min.js" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" xintegrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous"></script>
 </body>
 </html>

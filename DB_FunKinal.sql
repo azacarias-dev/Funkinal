@@ -4,6 +4,7 @@ use FunKinal_DB;
 
 create table usuarios (
     idUsuario int auto_increment primary key,
+    rol enum('Usuario','Admin') default 'Usuario',
     nombre varchar(50),
     apellido varchar(50),
     correo varchar(100) unique,
@@ -12,38 +13,22 @@ create table usuarios (
     estado varchar(64) default 'Activo'
 );
 
-create table productos (
-    idProducto int auto_increment primary key,
-    nombre varchar(100),
-    precio decimal(10,2),
-    descripcion text,
-    stock int,
-    estado varchar (64) default 'Existencias'
-);
-
 create table categorias (
     idCategoria int auto_increment primary key,
     nombre varchar(100),
     descripcion text
 );
 
-create table carrito (
-    idCarrito int auto_increment primary key,
-    idUsuario int,
-    fechaCreacion datetime,
-    estado varchar(50),
-    foreign key (idUsuario) references usuarios(idUsuario)
-);
-
-create table detalleCarrito (
-    idDetalleCarrito int auto_increment primary key,
-    idCarrito int,
-    idProducto int,
-    cantidad int,
-    precioUnitario decimal(10,2),
-    subtotal decimal(10,2),
-    foreign key (idCarrito) references carrito(idCarrito),
-    foreign key (idProducto) references productos(idProducto)
+create table productos (
+    idProducto int auto_increment primary key,
+    idCategoria int not null,
+    nombre varchar(100),
+    precio decimal(10,2),
+    descripcion text,
+    stock int,
+    estado varchar (64) default 'Existencias',
+    constraint fk_productos_categoria foreign key (idCategoria)
+		references Categorias (idCategoria)
 );
 
 create table compras (
@@ -66,12 +51,27 @@ create table detalleCompras (
     foreign key (idProducto) references productos(idProducto)
 );
 
-create table administradores (
-    idAdmin int auto_increment primary key,
-    nombre varchar(100),
-    correo varchar(100) unique,
-    contraseña varchar(100),
-    estado varchar(64) default 'Activo'
+create table Recibos (
+    idRecibo int auto_increment primary key,
+    idCompra int,
+    fechaEmision datetime,
+    total decimal(10,2),
+    metodoPago enum ('Efectivo', 'Tarjeta'),
+    estado varchar(64) default 'Emitido',
+    foreign key (idCompra) references compras(idCompra)
 );
 
-select * from productos;
+create table detalleRecibo (
+    idDetalleRecibo int auto_increment primary key,
+    idRecibo int,
+    idProducto int,
+    idUsuario int,
+    cantidad int,
+    precioUnitario decimal(10,2),
+    subtotal decimal(10,2),
+    foreign key (idRecibo) references recibos(idRecibo),
+    foreign key (idProducto) references productos(idProducto),
+    foreign key (idUsuario) references usuarios(idUsuario)
+);
+
+select * from Usuarios;
