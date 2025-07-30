@@ -29,7 +29,7 @@
 
         <div class="mb-3">
             <label>Total</label>
-            <input type="number" name="total" class="form-control" step="0.01" min="0" 
+            <input type="number" name="total" class="form-control" step="1" min="0" 
                    value="<%= recibo.getTotal() %>" required>
         </div>
 

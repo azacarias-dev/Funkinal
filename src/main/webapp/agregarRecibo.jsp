@@ -23,7 +23,7 @@
 
                     <div class="mb-3">
                         <label class="form-label">Total:</label>
-                        <input type="number" name="total" class="form-control" required>
+                        <input type="number" name="total" class="form-control" step="1" min="0" required>
                         
                     </div>
 

@@ -66,7 +66,7 @@ public class ServletRecibos extends HttpServlet {
         request.getRequestDispatcher("Recibos.jsp").forward(request, response);
     }
 
-    private void agregarRecibo(HttpServletRequest request, HttpServletResponse response)
+private void agregarRecibo(HttpServletRequest request, HttpServletResponse response)
         throws ServletException, IOException {
     try {
         int idCompra = Integer.parseInt(request.getParameter("idCompra"));
@@ -79,12 +79,14 @@ public class ServletRecibos extends HttpServlet {
             fechaEmision = Timestamp.valueOf(fechaParam);
         }
 
-        BigDecimal total = new BigDecimal(request.getParameter("total"));
+        int totalEntero = Integer.parseInt(request.getParameter("total"));
+        BigDecimal total = new BigDecimal(totalEntero);
+
         String metodoPago = request.getParameter("metodoPago");
-        String estado = request.getParameter("estado");
+        String estado = "Emitido";
 
         RecibosPojo r = new RecibosPojo(idCompra, total, metodoPago, estado);
-        r.setFechaEmision(fechaEmision); 
+        r.setFechaEmision(fechaEmision);
 
         recibosDao.guardar(r);
 
@@ -94,6 +96,7 @@ public class ServletRecibos extends HttpServlet {
         response.sendRedirect("ServletRecibos?action=listar");
     }
 }
+
 
     private void mostrarFormularioEditar(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
