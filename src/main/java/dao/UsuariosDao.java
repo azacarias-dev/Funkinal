@@ -40,7 +40,7 @@ public class UsuariosDao {
     }
     
     public List<UsuariosPojo> listarUsuarios(){
-        String jpql = "SELECT u FROM Usuarios u";
+        String jpql = "SELECT u FROM Usuarios u WHERE u.estado = 'Activo'";
         EntityManager em = emf.createEntityManager();
         try {
             return em.createQuery(jpql, UsuariosPojo.class).getResultList();
@@ -67,7 +67,7 @@ public class UsuariosDao {
         EntityTransaction transaccion = em.getTransaction();
         try {
             transaccion.begin();
-            em.persist(usuario);
+            em.merge(usuario);
             transaccion.commit();
         } catch (Exception e) {
             if (transaccion.isActive()) transaccion.rollback();
@@ -83,7 +83,8 @@ public class UsuariosDao {
             transaccion.begin();
             UsuariosPojo usuarios = em.find(UsuariosPojo.class, id);
             if (usuarios != null){
-                em.remove(usuarios);
+                usuarios.setEstado("Inactivo");
+                em.merge(usuarios);
             }
             transaccion.commit();
         } catch (Exception e) {
