@@ -4,7 +4,7 @@
     ComprasPojo compra = (ComprasPojo) request.getAttribute("compraEditar");
 
     if (compra == null) {
-        response.sendRedirect("ServletCompras?accion=listar&error=compraNoEncontrada");
+        response.sendRedirect("ServletCompras?accion=listar");
         return;
     }
 %>
@@ -25,7 +25,7 @@
                     <div class="card-header text-center">
                         <h2>Editar Compra</h2>
                     </div>
-                    <div class="card-body">
+                    <div class="container mt-4">
                         <form action="ServletCompras" method="post">
                             <input type="hidden" name="accion" value="actualizar">
                             <input type="hidden" name="idCompra" value="<%= compra.getIdCompra() %>">
@@ -51,7 +51,6 @@
                                     <option value="">Seleccione un método de pago</option>
                                     <option value="Efectivo" <%= "Efectivo".equals(compra.getMetodoPago()) ? "selected" : "" %>>Efectivo</option>
                                     <option value="Tarjeta" <%= "Tarjeta".equals(compra.getMetodoPago()) ? "selected" : "" %>>Tarjeta</option>
-                                    <option value="Transferencia" <%= "Transferencia".equals(compra.getMetodoPago()) ? "selected" : "" %>>Transferencia</option>
                                 </select>
                             </div>
                            
@@ -59,9 +58,7 @@
                                 <label for="estado" class="form-label">Estado:</label>
                                 <select class="form-select" id="estado" name="estado" required>
                                     <option value="">Seleccione un estado</option>
-                                    <option value="Pendiente" <%= "Pendiente".equals(compra.getEstado()) ? "selected" : "" %>>Pendiente</option>
-                                    <option value="Completada" <%= "Completada".equals(compra.getEstado()) ? "selected" : "" %>>Completada</option>
-                                    <option value="Cancelada" <%= "Cancelada".equals(compra.getEstado()) ? "selected" : "" %>>Cancelada</option>
+                                    <option value="sin pagar" <%= "Sin Pagar".equals(compra.getEstado()) ? "selected" : "" %>>Sin Pagar</option>
                                 </select>
                             </div>
 
