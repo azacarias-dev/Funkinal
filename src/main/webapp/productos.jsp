@@ -14,7 +14,7 @@
         <div class="container mt-4">
             <h2 class="mb- text">Lista de Productos</h2>
             <div class="mb-3 text-end">
-                <a href="agregarProducto.jsp" class="btn">Nueva Categoría</a>
+                <a href="agregarProducto.jsp" class="btn">Nuevo Producto</a>
             </div>
             <table class="table table-striped table-bordered table-hover">
                 <thead class="table-dark">
