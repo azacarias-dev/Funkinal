@@ -1,4 +1,5 @@
 <%@page import="java.util.List"%>
+<%@page import="java.util.Map"%>
 <%@page import="model.ProductosPojo"%>
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 <!DOCTYPE html>
@@ -14,13 +15,13 @@
         <div class="container mt-4">
             <h2 class="mb- text">Lista de Productos</h2>
             <div class="mb-3 text-end">
-                <a href="agregarProducto.jsp" class="btn btn-primary">Nuevo Producto</a>
+                <a href="ServletProductos?accion=agregar" class="btn btn-primary">Nuevo Producto</a>
             </div>
             <table class="table table-striped table-bordered table-hover">
                 <thead class="table-dark">
                     <tr>
                         <th>ID Producto</th>
-                        <th>ID Categoría</th>
+                        <th>Categoría</th> 
                         <th>Nombre</th>
                         <th>Precio</th>
                         <th>Descripción</th>
@@ -32,14 +33,16 @@
                 <tbody>
                     <%
                         List<ProductosPojo> listaProductos = (List<ProductosPojo>) request.getAttribute("listaProductos");
+                        Map<Integer, String> mapaCategorias = (Map<Integer, String>) request.getAttribute("mapaCategorias");
                         if (listaProductos != null && !listaProductos.isEmpty()) {
-                            for (ProductosPojo prod : listaProductos) { 
+                            for (ProductosPojo prod : listaProductos) {
+                                String nombreCategoria = mapaCategorias.getOrDefault(prod.getIdCategoria(), "Desconocida");
                     %>
                     <tr>
                         <td><%= prod.getIdProducto()%></td>
-                        <td><%= prod.getIdCategoria()%></td> 
+                        <td><%= nombreCategoria%></td> 
                         <td><%= prod.getNombre()%></td>
-                        <td><%= String.format("%.2f", prod.getPrecio())%></td> 
+                        <td><%= String.format("%.2f", prod.getPrecio())%></td>
                         <td><%= prod.getDescripcion()%></td>
                         <td><%= prod.getStock()%></td>
                         <td><%= prod.getEstado()%></td>
@@ -49,8 +52,8 @@
                         </td>
                     </tr>
                     <%
-                            }
-                        } else {
+                        }
+                    } else {
                     %>
                     <tr>
                         <td colspan="8" class="text-center">No hay productos registrados.</td>
@@ -61,6 +64,6 @@
             </table>
         </div>
 
-<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" xintegrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous"></script>
+        <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" xintegrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous"></script>
     </body>
 </html>

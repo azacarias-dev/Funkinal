@@ -1,4 +1,6 @@
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
+<%@page import="java.util.List"%>
+<%@page import="model.CategoriasPojo"%> 
 <!DOCTYPE html>
 <html lang="es">
     <head>
@@ -21,6 +23,16 @@
                             <label for="idCategoria" class="form-label">Categoría:</label>
                             <select id="idCategoria" name="idCategoria" class="form-select" required>
                                 <option value="">Seleccione una categoría</option>
+                                <%
+                                    List<CategoriasPojo> listaCategorias = (List<CategoriasPojo>) request.getAttribute("listaCategorias");
+                                    if (listaCategorias != null) {
+                                        for (CategoriasPojo categoria : listaCategorias) {
+                                %>
+                                        <option value="<%= categoria.getIdCategoria() %>"><%= categoria.getNombre() %></option>
+                                <%
+                                        }
+                                    }
+                                %>
                             </select>
                         </div>
 
@@ -59,4 +71,5 @@
 
         <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" xintegrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous"></script>
     </body>
+    <br>
 </html>
