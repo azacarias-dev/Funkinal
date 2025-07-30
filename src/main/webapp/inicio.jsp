@@ -14,7 +14,6 @@
         <title>Funko Pop</title>
         <link rel="stylesheet" href="styles/inicio.css">
     </head>
-
     <body>
         <!-- Encabezado -->
         <div class="fondo">
@@ -132,9 +131,6 @@
             <li data-title="Historial">
                 <img src="https://cdn-icons-png.flaticon.com/128/8302/8302434.png" alt="Imagen 4" class="img-isla">
             </li>
-
-       
-
         </ul>
 
         <button class="btn-cssbuttons">
@@ -278,13 +274,11 @@
                 carrusel.style.transform = `translateX(-${indice * 100}%)`;
             }
         </script>
-
         <script>
             function abrirMenuFlotante() {
                 const menu = document.querySelector('.menu-flotante2');
                 menu.classList.toggle('show');
             }
         </script>
-
     </body>
 </html>

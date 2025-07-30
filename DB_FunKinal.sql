@@ -73,10 +73,5 @@ create table detalleRecibo (
     foreign key (idProducto) references productos(idProducto),
     foreign key (idUsuario) references usuarios(idUsuario)
 );
-INSERT INTO usuarios (
-    rol, nombre, apellido, correo, contrasena, telefono, estado
-) VALUES (
-    'Admin', 'Juan', 'Pérez', 'admin@gmail.com', 'admin1234', '555-1234', 'Activo'
-);
 
 select * from Usuarios;
