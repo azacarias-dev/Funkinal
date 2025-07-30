@@ -34,7 +34,7 @@ public class ServletLogin extends HttpServlet {
                 session.setAttribute("usuarioLogueado", usuario);
                 session.setAttribute("nombreUsuario", usuario.getNombre());
                 
-                respuesta.sendRedirect("inicio.jsp"); 
+                respuesta.sendRedirect("MenuAdministradores.jsp"); 
             } else {
                 solicitud.setAttribute("mensajeError", "Contraseña incorrecta. Inténtalo de nuevo.");
                 solicitud.getRequestDispatcher("login.jsp").forward(solicitud, respuesta);

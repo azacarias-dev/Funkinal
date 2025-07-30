@@ -5,10 +5,10 @@
         <property name="serverName" value="127.0.0.1"/>
         <property name="portNumber" value="3306"/>
         <property name="databaseName" value="FunKinal_DB"/>
-        <property name="User" value="quinto"/>
+        <property name="User" value="quintom"/>
         <property name="Password" value="admin"/>
         <property name="URL" value="jdbc:mysql://127.0.0.1:3306/FunKinal_DB?useSSL=false"/>
         <property name="driverClass" value="org.gjt.mm.mysql.Driver"/>
     </jdbc-connection-pool>
-    <jdbc-resource enabled="true" jndi-name="java:app/jdbc/fun" object-type="user" pool-name="mysql_FunKinal_DB_quintoPool"/>
+    <jdbc-resource enabled="true" jndi-name="jdbc/fun" object-type="user" pool-name="mysql_FunKinal_DB_quintoPool"/>
 </resources>

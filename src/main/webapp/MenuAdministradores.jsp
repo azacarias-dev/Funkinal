@@ -11,7 +11,7 @@
         <meta charset="UTF-8">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <link rel="icon" type="image/png" href="https://www.funko.com/on/demandware.static/Sites-FunkoUS-Site/-/default/dwdf4d4162/images/favicons/funko-favicon-96x96.png" />
-        <link rel="stylesheet" href="styles/inicio.css?<%= System.currentTimeMillis() %>">
+        <link rel="stylesheet" href="styles/inicio.css?<%= System.currentTimeMillis()%>">
 
         <title>Funko Pop</title>
     </head>
@@ -69,18 +69,17 @@
                 <img src="https://cdn-icons-png.flaticon.com/128/8302/8302434.png" alt="Imagen 4" class="img-isla">
             </li>
         </ul>
-        
+
         <div class="Ajuste"><h1>Opciones de Administradores</h1>
             <h1>Acontinuacion se te brindaran opciones que te redigiran a cada Entidad</h1></div>
 
         <div class="buttone-container">
-            <button class="buttone">Usuarios</button>
-            <button class="buttone">Productos</button>
-             <a href="/Funkinal/CategoriaServlet?accion=listar"><button class="buttone">Categorias</button></a>
-            <button class="buttone">Recibos</button>
-            <button class="buttone">Compras</button>
+            <a href="/Funkinal/ServletUsuarios?accion=listar"><button class="buttone">Usuarios</button></a>
+            <a href="/Funkinal/ServletProductos?accion=listar"><button class="buttone">Productos</button></a>
+            <a href="/Funkinal/CategoriaServlet?accion=listar"><button class="buttone">Categorias</button></a>
+            <a href="/Funkinal/ServletRecibos?accion=listar"><button class="buttone">Recibos</button></a>
+            <a href="/Funkinal/ServletCompras?accion=listar"><button class="buttone">Compras</button></a>
         </div>
-
 
         <!-- Pie de página / Información general -->
         <footer class="footer2">

@@ -7,15 +7,13 @@
         <meta charset="utf-8">
         <meta name="viewport" content="width=device-width, initial-scale=1">
         <title>Lista de Categorías</title>
-        <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.7/dist/css/bootstrap.min.css" rel="stylesheet"
-              integrity="sha384-LN+7fdVzj6u52u30Kp6M/trliBMCMKTyK833zpbD+pXdCLuTusPj697FH4R/5mcr" crossorigin="anonymous">
-        <link rel="stylesheet" href="styles/Categorias.css?<%= System.currentTimeMillis() %>">
+        <link rel="stylesheet" href="styles/Categorias.css?<%= System.currentTimeMillis()%>">
     </head>
     <body>
         <div class="container mt-4">
-            <h2 class="mb-4 text-center">Lista de Categorías</h2>
+            <h2 class="mb- text">Lista de Categorías</h2>
             <div class="mb-3 text-end">
-                <a href="agregarCategoria.jsp" class="btn btn-primary">Nueva Categoría</a>
+                <a href="agregarCategoria.jsp" class="btn">Nueva Categoría</a>
             </div>
             <table class="table table-striped table-bordered table-hover">
                 <thead class="table-dark">
@@ -55,8 +53,5 @@
                 </tbody>
             </table>
         </div>
-
-        <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.7/dist/js/bootstrap.bundle.min.js"
-        integrity="sha384-ndDqU0Gzau9qJ1lfW4pNLlhNTkCfHzAVBReH9diLvGRem5+R9g2FzA8ZGN954O5Q" crossorigin="anonymous"></script>
     </body>
 </html>
