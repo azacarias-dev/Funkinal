@@ -39,7 +39,7 @@ public class ServletUsuarios extends HttpServlet {
                 break;
 
             case "editar":
-                editarUsuario(solicitud, respuesta);
+                mostrarFormEditar(solicitud, respuesta);
                 break;
 
             case "eliminar":
@@ -56,7 +56,7 @@ public class ServletUsuarios extends HttpServlet {
         String accion = solicitud.getParameter("accion");
 
         switch (accion) {
-            case "editar":
+            case "actualizar":
                 editarUsuario(solicitud, respuesta);
                 break;
             default:
@@ -88,7 +88,7 @@ public class ServletUsuarios extends HttpServlet {
         usuarios.setTelefono(solicitud.getParameter("telefono"));
 
         dao.actualizar(usuarios);
-        respuesta.sendRedirect("ServletUsuarios");
+        respuesta.sendRedirect("ServletUsuarios?accion=listar");
     }
 
     private void eliminarUsuario(HttpServletRequest solicitud, HttpServletResponse respuesta) throws ServletException, IOException {
