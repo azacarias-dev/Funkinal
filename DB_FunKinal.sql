@@ -1,4 +1,4 @@
-drop database FunKinal_DB;
+-- drop database FunKinal_DB;
 create database FunKinal_DB;
 use FunKinal_DB;
 
@@ -74,4 +74,4 @@ create table detalleRecibo (
     foreign key (idUsuario) references usuarios(idUsuario)
 );
 
-select * from Productos;
+select * from Usuarios;

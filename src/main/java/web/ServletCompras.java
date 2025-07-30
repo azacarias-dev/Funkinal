@@ -37,7 +37,7 @@ public class ServletCompras extends HttpServlet {
                 int idEditar = Integer.parseInt(request.getParameter("id"));
                 ComprasPojo compraEditar = dao.buscarPorId(idEditar);
                 request.setAttribute("compraEditar", compraEditar);
-                request.getRequestDispatcher("editarCompra.jsp").forward(request, response);
+                request.getRequestDispatcher("editarCompras.jsp").forward(request, response);
                 break;
 
             case "eliminar":
