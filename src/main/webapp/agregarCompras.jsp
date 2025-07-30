@@ -37,7 +37,6 @@
                             <option value="">Seleccione un método de pago</option>
                             <option value="Efectivo">Efectivo</option>
                             <option value="Tarjeta">Tarjeta</option>
-                            <option value="Transferencia">Transferencia</option>
                             </select>
                     </div>
                     
@@ -45,9 +44,7 @@
                         <label for="estado" class="form-label">Estado:</label>
                         <select class="form-select" id="estado" name="estado" required>
                             <option value="">Seleccione un estado</option>
-                            <option value="Pendiente">Pendiente</option>
-                            <option value="Completada">Completada</option>
-                            <option value="Cancelada">Cancelada</option>
+                            <option value="sin pagar">Sin pagar</option>
                             </select>
                     </div>
 
