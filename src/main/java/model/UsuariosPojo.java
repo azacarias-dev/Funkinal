@@ -28,6 +28,8 @@ public class UsuariosPojo {
     private String contrasena;
     @Column(name = "telefono")
     private String telefono;
+    @Column(name = "estado")
+    private String estado;
 
     public UsuariosPojo(String nombre, String apellido, String correo, String contrasena, String telefono) {
         this.nombre = nombre;
@@ -87,5 +89,12 @@ public class UsuariosPojo {
     public void setContrasena(String contraseña) {
         this.contrasena = contraseña;
     }
-    
+
+    public String getEstado() {
+        return estado;
+    }
+
+    public void setEstado(String estado) {
+        this.estado = estado;
+    }
 }
