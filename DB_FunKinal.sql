@@ -4,13 +4,13 @@ use FunKinal_DB;
 
 create table usuarios (
     idUsuario int auto_increment primary key,
-    rol enum("Usuario","Admin") default ("Usuario"),
+    rol enum('Usuario','Admin') default 'Usuario',
     nombre varchar(50),
     apellido varchar(50),
     correo varchar(100) unique,
     contrasena varchar(100),
     telefono varchar(20),
-    estado varchar(64) default ("Activo")
+    estado varchar(64) default 'Activo'
 );
 
 create table categorias (
@@ -26,7 +26,7 @@ create table productos (
     precio decimal(10,2),
     descripcion text,
     stock int,
-    estado varchar (64) default ("Existencias"),
+    estado varchar (64) default 'Existencias',
     constraint fk_productos_categoria foreign key (idCategoria)
 		references Categorias (idCategoria)
 );
@@ -36,8 +36,8 @@ create table compras (
     idUsuario int,
     fechaCompra datetime,
     total decimal(10,2),
-    metodoPago enum ("Efectivo","Tarjeta"),
-    estado varchar (64) default ("Sin pagar"),
+    metodoPago enum ('Efectivo','Tarjeta'),
+    estado varchar (64) default 'Sin pagar',
     foreign key (idUsuario) references usuarios(idUsuario)
 );
 
@@ -56,8 +56,8 @@ create table Recibos (
     idCompra int,
     fechaEmision datetime,
     total decimal(10,2),
-    metodoPago enum("Efectivo", "Tarjeta"),
-    estado varchar(64) default "Emitido",
+    metodoPago enum ('Efectivo', 'Tarjeta'),
+    estado varchar(64) default 'Emitido',
     foreign key (idCompra) references compras(idCompra)
 );
 
@@ -74,4 +74,4 @@ create table detalleRecibo (
     foreign key (idUsuario) references usuarios(idUsuario)
 );
 
-select * from Usuarios;
+select * from Productos;
