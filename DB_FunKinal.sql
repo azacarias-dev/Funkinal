@@ -10,7 +10,7 @@ create table usuarios (
     correo varchar(100) unique,
     contrasena varchar(100),
     telefono varchar(20),
-    estado varchar(64) default "Activo"
+    estado varchar(64) default ("Activo")
 );
 
 create table categorias (
