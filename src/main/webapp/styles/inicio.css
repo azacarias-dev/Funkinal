@@ -1080,3 +1080,27 @@ body {
     width: 477px; /* O puedes poner un tamaño fijo, como 600px, según lo necesites */
     height: auto;
 }
+.menu-funkos h3 {
+  margin-top: 40px;
+  font-size: 24px;
+  color: #333;
+}
+
+.contenedor-funkos {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 20px;
+  justify-content: start;
+}
+
+.funko-item {
+  width: 200px;
+  text-align: center;
+}
+
+/* Separación automática cada 5 funkos */
+.contenedor-funkos .funko-item:nth-child(5n)::after {
+    content: "";
+    flex-basis: 100%;
+    height: 30px; /* altura del espacio */
+}
