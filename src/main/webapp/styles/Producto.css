@@ -1260,3 +1260,92 @@ body {
     }
 }
 
+.cantidad-label {
+    font-size: 16px;
+    margin-top: 10px;
+    display: block;
+}
+
+.cantidad-input {
+    width: 60px;
+    padding: 5px;
+    font-size: 16px;
+    margin: 10px 0 20px;
+    text-align: center;
+}
+
+.botones-compra {
+    display: flex;
+    justify-content: center;
+    gap: 15px;
+}
+
+.button.pagar {
+    background-color: #28a745;
+}
+
+.button.pagar:hover {
+    background-color: #218838;
+}
+
+.button.guardar {
+    background-color: #ffc107;
+    color: black;
+}
+
+.button.guardar:hover {
+    background-color: #e0a800;
+}
+
+.Menu {
+    position: relative ;
+    justify-content: center;
+}
+
+.Menu img{
+    position: absolute;
+    width: 500px;
+    left: 5%;
+}
+
+.Titule {
+    position: absolute;
+    right: 20%;
+    font-size: 100px;
+}
+
+.cantidad {
+    position: absolute;
+    background-color: red;
+    width: 200px;
+    top: 350px;
+    height: 50px;
+    right: 30%;
+    padding: 5px;
+    border-radius: 20px;
+    border-color: blue;
+}
+
+.fila {
+    display: flex;
+    align-items: center; 
+    justify-content: center;
+    gap: 10px; /* espacio entre label e input */
+    padding: 7px 0px;
+    color: white;
+}
+
+.alineacion {
+    text-align: center;
+    width: 50px;
+}
+
+.botonesPagoYtarde {
+    position: absolute ;
+    top: 500px;
+    right: 30%;
+}
+
+.botonesPagoYtarde button {
+  padding: 10px 20px;
+}

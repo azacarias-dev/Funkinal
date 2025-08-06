@@ -31,10 +31,19 @@ public class ServletLogin extends HttpServlet {
 
             if (contrasenaCoincide) {
                 HttpSession session = solicitud.getSession();
+                session.setAttribute("idUsuario", usuario.getIdUsuario());
                 session.setAttribute("usuarioLogueado", usuario);
                 session.setAttribute("nombreUsuario", usuario.getNombre());
+                session.setAttribute("correoUsuario", usuario.getCorreo());
+
+                // Verificar el rol y redirigir
+                String rol = usuario.getRol(); // Ejemplo: "admin" o "usuario"
+                if ("admin".equalsIgnoreCase(rol)) {
+                    respuesta.sendRedirect("MenuAdministradores.jsp");
+                } else {
+                    respuesta.sendRedirect("inicio.jsp");
+                }
                 
-                respuesta.sendRedirect("MenuAdministradores.jsp"); 
             } else {
                 solicitud.setAttribute("mensajeError", "Contraseña incorrecta. Inténtalo de nuevo.");
                 solicitud.getRequestDispatcher("login.jsp").forward(solicitud, respuesta);
