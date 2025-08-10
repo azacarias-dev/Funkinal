@@ -1,0 +1,117 @@
+/* pago.css */
+
+body {
+    background-color: #f8f9fa; /* color claro suave */
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    margin: 0;
+    padding: 0;
+    min-height: 100vh;
+
+    /* flexbox para centrar vertical y horizontal */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+form#formPago {
+    background-color: #ffffff;
+    padding: 2rem 3rem;
+    border-radius: 10px;
+    box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+    width: 100%;
+    max-width: 420px;
+    box-sizing: border-box;
+}
+
+h2 {
+    text-align: center;
+    position: absolute;
+    top: 20px;
+    margin-bottom: 1.5rem;
+    color: #343a40;
+}
+
+label {
+    display: block;
+    margin-top: 1rem;
+    margin-bottom: 0.4rem;
+    font-weight: 600;
+    color: #495057;
+}
+
+input[type="text"],
+input[type="email"],
+input[type="month"],
+input[type="number"] {
+    width: 100%;
+    padding: 0.45rem 0.7rem;
+    border: 1.5px solid #ced4da;
+    border-radius: 6px;
+    font-size: 1rem;
+    transition: border-color 0.3s ease;
+}
+
+input[type="text"]:focus,
+input[type="email"]:focus,
+input[type="month"]:focus,
+input[type="number"]:focus {
+    border-color: #0d6efd; /* bootstrap primary blue */
+    outline: none;
+}
+
+.descripcion-efectivo {
+    margin-top: 1rem;
+    font-style: italic;
+    background-color: #e9f5ff;
+    border-left: 4px solid #0d6efd;
+    padding: 0.5rem 1rem;
+    color: #0b5ed7;
+    border-radius: 4px;
+}
+
+.hidden {
+    display: none;
+}
+
+button.btn {
+    margin-top: 1.8rem;
+    width: 100%;
+    padding: 0.6rem;
+    font-size: 1.1rem;
+    font-weight: 600;
+    border-radius: 6px;
+    cursor: pointer;
+    border: none;
+}
+
+.btn-success {
+ margin: 20px 10px 15px 10px; 
+    background-color: #198754;
+    color: white;
+}
+
+.btn-success:hover {
+    background-color: #157347;
+}
+
+.btn-secondary {
+    background-color: #6c757d;
+    color: white;
+    text-decoration: none;
+    display: inline-block;
+    text-align: center;
+    padding: 0.6rem 1rem;
+    border-radius: 6px;
+    margin-left: 0.5rem;
+}
+
+.btn-secondary:hover {
+    background-color: #5a6268;
+}
+
+@media (max-width: 480px) {
+    form#formPago {
+        padding: 1.5rem 1.5rem;
+        max-width: 90%;
+    }
+}
