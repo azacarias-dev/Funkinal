@@ -262,6 +262,34 @@ JOIN productos p ON dc.idProducto = p.idProducto
 WHERE c.estado = 'Pagado' 
 ORDER BY c.fechaCompra DESC;
 
+delimiter //
+	create trigger tr_productos_after_insert
+    after insert on detalleCompras
+    for each row
+		begin
+			update productos
+				set
+					stock = stock - new.cantidad
+				where idProducto = new.idProducto;
+        end//
+delimiter ;
+
+delimiter //
+	create trigger tr_productos_before_insert
+    before insert on detalleCompras
+    for each row
+		begin
+			declare stockActual int;
+            select stock into stockActual
+            from productos p
+            where p.idProducto = new.idProducto;
+            
+            if stockActual <= 0 then
+            signal sqlstate '45000'
+            set message_text = 'Error: El producto no tiene suficiente stock.';
+            end if;
+        end//
+delimiter ;
 
 select * from productos ;
 select * from compras ;
