@@ -38,7 +38,7 @@ public class FinalizarPagoServlet extends HttpServlet {
                 comprasDao.eliminar(idCompra);
             }
 
-            resp.sendRedirect("inicio.jsp");
+            resp.sendRedirect("Catalogo/inicio.jsp");
         } catch (Exception e) {
             e.printStackTrace();
             resp.getWriter().write("Error al procesar la acción.");

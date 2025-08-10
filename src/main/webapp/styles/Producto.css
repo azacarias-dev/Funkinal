@@ -1299,13 +1299,15 @@ body {
 
 .Menu {
     position: relative ;
+    top: 100px;
     justify-content: center;
 }
 
 .Menu img{
     position: absolute;
-    width: 500px;
-    left: 5%;
+    top: -75px;
+    width: 700px;
+    left: 15%;
 }
 
 .Titule {
@@ -1349,3 +1351,74 @@ body {
 .botonesPagoYtarde button {
   padding: 10px 20px;
 }
+
+/* ==== MEDIA QUERY RESPONSIVE para pantallas 1000px o menos ==== */
+@media screen and (max-width: 1500px) {
+    .Menu {
+        position: static;       /* Quitar relative para el contenedor */
+        max-width: 90%;
+        margin: 20px auto;
+        padding: 10px;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        gap: 20px;
+    }
+
+    .Menu img {
+        position: static !important;   /* quitar absolute */
+        width: 100%;
+        max-width: 450px;
+        height: auto;
+        left: auto;
+        margin: 0 auto;
+    }
+
+    .Titule {
+        position: static !important;
+        font-size: 32px;
+        text-align: center;
+        right: auto;
+    }
+
+    .cantidad {
+        position: static !important;
+        background-color: red;
+        width: auto;
+        max-width: 300px;
+        height: auto;
+        padding: 10px;
+        border-radius: 10px;
+        border-color: blue;
+        display: flex;
+        justify-content: center;
+    }
+
+    .fila {
+        justify-content: center;
+    }
+
+    .alineacion {
+        width: 70px;
+        text-align: center;
+    }
+
+    .botonesPagoYtarde {
+        position: static !important;
+        display: flex;
+        gap: 10px;
+        flex-wrap: wrap;
+        justify-content: center;
+        margin-top: 10px;
+        width: 100%;
+        max-width: 350px;
+    }
+
+    .botonesPagoYtarde button {
+        flex: 1 1 45%;
+        min-width: 120px;
+        padding: 10px;
+        font-size: 16px;
+    }
+}
+

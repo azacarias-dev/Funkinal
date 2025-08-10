@@ -11,12 +11,12 @@
         <meta charset="UTF-8">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <link rel="icon" type="image/png" href="https://www.funko.com/on/demandware.static/Sites-FunkoUS-Site/-/default/dwdf4d4162/images/favicons/funko-favicon-96x96.png" />
-         <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
+        <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
         <title>Funko Pop</title>
-        <link rel="stylesheet" href="styles/inicio.css">
+        <link rel="stylesheet" href="../styles/inicio.css">
     </head>
     <body>
-        
+
         <%
             String nombreUsuario = (String) session.getAttribute("nombreUsuario");
             if (nombreUsuario == null) {
@@ -39,19 +39,18 @@
                     </div>
 
                     <div class="modal-body">
-                        <img src="https://funko.com/on/demandware.static/Sites-FunkoUS-Site/-/default/dwbc961a9d/images/funko/svg/site-logo.svg" alt="Logo Pop">
                         <p><strong>Nombre:</strong> <%= nombreUsuario%></p>
                         <p><strong>Correo:</strong> <%= correoUsuario%></p>
                     </div>
 
                     <div class="modal-footer">
                         <!-- Botón: Cambiar de cuenta (redirige a login.jsp después de cerrar sesión) -->
-                        <form action="CambiarCuenta.jsp" method="post">
+                        <form action="../CambiarCuenta.jsp" method="post">
                             <button type="submit" class="btn btn-warning">Cambiar de Cuenta</button>
                         </form>
 
                         <!-- Botón: Cerrar sesión (redirige a logout.jsp si lo haces por separado) -->
-                        <form action="CerrarSesion.jsp" method="post">
+                        <form action="../CerrarSesion.jsp" method="post">
                             <button type="submit" class="btn btn-danger">Cerrar Sesión</button>
                         </form>
 
@@ -93,7 +92,7 @@
                         <div class="funko-item">
                             <img src="https://funko.com/dw/image/v2/BGTS_PRD/on/demandware.static/-/Sites-funko-master-catalog/default/dwc37dd894/images/funko/upload/87185_POP_Star-Wars_Andor_S3_POP-6_GLAM-WEB.png?sw=800&sh=800" alt="Billy">
                             <p><strong>Mandalorian</strong><br>Star wars</p>
-                            <button type="button" class="button">
+                            <button onclick="location.href = 'Producto1.jsp?id=1'" type="button" class="button">
                                 <span class="button__text">Agregar</span>
                                 <span class="button__icon"><svg xmlns="http://www.w3.org/2000/svg" width="24" viewBox="0 0 24 24" stroke-width="2" stroke-linejoin="round" stroke-linecap="round" stroke="currentColor" height="24" fill="none" class="svg"><line y2="19" y1="5" x2="12" x1="12"></line><line y2="12" y1="12" x2="19" x1="5"></line></svg></span>
                             </button>
@@ -101,7 +100,7 @@
                         <div class="funko-item">
                             <img src="https://funko.com/dw/image/v2/BGTS_PRD/on/demandware.static/-/Sites-funko-master-catalog/default/dwee0d696c/images/funko/upload/85191_POP_StarWars_POP-4_GLAM-WEB.png?sw=800&sh=800" alt="Billy">
                             <p><strong>Darth Vader</strong><br>Star wars</p>
-                            <button type="button" class="button">
+                            <button onclick="location.href = 'Producto2.jsp?id=2'" type="button" class="button">
                                 <span class="button__text">Agregar</span>
                                 <span class="button__icon"><svg xmlns="http://www.w3.org/2000/svg" width="24" viewBox="0 0 24 24" stroke-width="2" stroke-linejoin="round" stroke-linecap="round" stroke="currentColor" height="24" fill="none" class="svg"><line y2="19" y1="5" x2="12" x1="12"></line><line y2="12" y1="12" x2="19" x1="5"></line></svg></span>
                             </button>
@@ -109,7 +108,7 @@
                         <div class="funko-item">
                             <img src="https://funko.com/dw/image/v2/BGTS_PRD/on/demandware.static/-/Sites-funko-master-catalog/default/dwe7080fa9/images/funko/upload/85189_POP_StarWars_POP-2_GLAM-WEB.png?sw=800&sh=800" alt="Billy">
                             <p><strong>Kylo Ren</strong><br>Star wars</p>
-                            <button type="button" class="button">
+                            <button onclick="location.href = 'Producto3.jsp?id=3'" type="button" class="button">
                                 <span class="button__text">Agregar</span>
                                 <span class="button__icon"><svg xmlns="http://www.w3.org/2000/svg" width="24" viewBox="0 0 24 24" stroke-width="2" stroke-linejoin="round" stroke-linecap="round" stroke="currentColor" height="24" fill="none" class="svg"><line y2="19" y1="5" x2="12" x1="12"></line><line y2="12" y1="12" x2="19" x1="5"></line></svg></span>
                             </button>
@@ -117,15 +116,15 @@
                         <div class="funko-item">
                             <img src="https://funko.com/dw/image/v2/BGTS_PRD/on/demandware.static/-/Sites-funko-master-catalog/default/dw5ee43693/images/funko/upload/85342_POP_Star-Wars-Retro_Admiral-Ackbar_GLAM-WEB.png?sw=800&sh=800" alt="Billy">
                             <p><strong>Admiral Ackbar</strong><br>Star wars</p>
-                            <button type="button" class="button">
+                            <button onclick="location.href = 'Producto4.jsp?id=4'" type="button" class="button">
                                 <span class="button__text">Agregar</span>
                                 <span class="button__icon"><svg xmlns="http://www.w3.org/2000/svg" width="24" viewBox="0 0 24 24" stroke-width="2" stroke-linejoin="round" stroke-linecap="round" stroke="currentColor" height="24" fill="none" class="svg"><line y2="19" y1="5" x2="12" x1="12"></line><line y2="12" y1="12" x2="19" x1="5"></line></svg></span>
                             </button>
                         </div>
                         <div class="funko-item">
                             <img src="https://funko.com/dw/image/v2/BGTS_PRD/on/demandware.static/-/Sites-funko-master-catalog/default/dw6045dbf4/images/funko/31799-1.png?sw=800&sh=800" alt="Billy">
-                            <p><strong>yoda</strong><br>Star wars</p>
-                            <button type="button" class="button">
+                            <p><strong>Yoda</strong><br>Star wars</p>
+                            <button onclick="location.href = 'Producto5.jsp?id=5'" type="button" class="button">
                                 <span class="button__text">Agregar</span>
                                 <span class="button__icon"><svg xmlns="http://www.w3.org/2000/svg" width="24" viewBox="0 0 24 24" stroke-width="2" stroke-linejoin="round" stroke-linecap="round" stroke="currentColor" height="24" fill="none" class="svg"><line y2="19" y1="5" x2="12" x1="12"></line><line y2="12" y1="12" x2="19" x1="5"></line></svg></span>
                             </button>
@@ -138,12 +137,12 @@
                         <div class="funko-item">
                             <img src="https://funko.com/dw/image/v2/BGTS_PRD/on/demandware.static/-/Sites-funko-master-catalog/default/dw8b888fe4/images/funko/upload/88467_POP_Disney_TS30th_Al_POP_GLAM-WEB.png?sw=800&sh=800" alt="Billy">
                             <p><strong>Chicken Suit</strong><br>Toy Story </p>
-                          
-                            <button onclick="location.href='Producto1.jsp?id=1'" type="button" class="button">
+
+                            <button onclick="location.href = 'Producto6.jsp?id=6'" type="button" class="button">
                                 <span  class="button__text">Agregar</span>
                                 <span class="button__icon"><svg xmlns="http://www.w3.org/2000/svg" width="24" viewBox="0 0 24 24" stroke-width="2" stroke-linejoin="round" stroke-linecap="round" stroke="currentColor" height="24" fill="none" class="svg"><line y2="19" y1="5" x2="12" x1="12"></line><line y2="12" y1="12" x2="19" x1="5"></line></svg></span>
                             </button>
-                            
+
                         </div>
                         <div class="funko-item">
                             <img src="https://funko.com/dw/image/v2/BGTS_PRD/on/demandware.static/-/Sites-funko-master-catalog/default/dwa03c6ecf/images/funko/37383-1.png?sw=800&sh=800" alt="Billy">
@@ -394,12 +393,12 @@
         </div>
         <div class="menu-flotante" id="menuFlotante">
             <ul>
-                <li><a href="#"> Inicio De Sesion </a></li>
-                <li><a href="#"> Configuracion </a></li>
-                <li><a href="#"> Compras </a></li>
+                <li><a href="#" id="btnPerfil2"> Perfil </a></li>
+                <li><a href="#" id="btnCarrito2"> Carrito </a></li>
+                <li><a href="#" id="btnVerCompras2"> Historial  </a></li>
             </ul>
         </div>
-          <!-- Isla (solo escritorio) -->
+        <!-- Isla (solo escritorio) -->
         <ul class="isla">
             <li data-title="Busqueda" class="perfil-contenedor">
                 <img src="https://cdn-icons-png.flaticon.com/128/2697/2697422.png" alt="Imagen 2" class="img-isla" id="iconoPerfil">      
@@ -414,7 +413,7 @@
             </li>
 
             <li data-title="Carrito">
-                <img src="https://cdn-icons-png.flaticon.com/128/1170/1170678.png" alt="Imagen 4" class="img-isla">
+                <img src="https://cdn-icons-png.flaticon.com/128/1170/1170678.png" alt="Imagen 4" class="img-isla" id="btnCarrito">
             </li>
 
             <li data-title="Historial">
@@ -446,7 +445,25 @@
                 </li>
             </ul>
         </button>
-           <div id="contenedorModalCompras"></div>
+
+        <div class="modal fade" id="modalCarrito" tabindex="-1" aria-hidden="true">
+            <div class="modal-dialog modal-lg modal-dialog-centered">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <h5 class="modal-title">Carrito de Compras</h5>
+                        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Cerrar"></button>
+                    </div>
+                    <div class="modal-body" id="contenidoCarrito">
+                        <!-- Aquí se cargará dinámicamente el contenido de carrito (tabla) -->
+                    </div>
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cerrar</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div id="contenedorModalCompras"></div>
         <footer class="footer">
             <div class="footer-contenido">
                 <p>&copy; 2025 Funko Pop Collection. Todos los derechos reservados.</p>
@@ -522,7 +539,7 @@
                 }
             });
         </script>
-        
+
         <script>
             let indice = 0;
             function moverCarrusel(direccion) {
@@ -532,35 +549,63 @@
                 carrusel.style.transform = `translateX(-${indice * 100}%)`;
             }
         </script>
-        
+
         <!-- Bootstrap JS Bundle (incluye Popper) -->
         <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
 
         <script>
             // Obtener referencia al botón y al modal
             const btnPerfil = document.getElementById("btnPerfil");
+            const btnPerfil2 = document.getElementById("btnPerfil2");
             const modalPerfil = new bootstrap.Modal(document.getElementById("modalPerfil"));
 
             // Abrir modal al hacer clic en el botón
             btnPerfil.addEventListener("click", () => {
                 modalPerfil.show();
             });
+            // Abrir modal al hacer clic en el botón
+            btnPerfil2.addEventListener("click", () => {
+                modalPerfil.show();
+            });
         </script>
 
         <script>
-            document.getElementById("btnVerCompras").addEventListener("click", function () {
-                fetch("ServletCompras?accion=verComprasUsuario")
-                        .then(response => response.text())
-                        .then(html => {
-                            // Inyectar el contenido HTML en el contenedor
-                            document.getElementById("contenedorModalCompras").innerHTML = html;
-
-                            // Mostrar la modal una vez cargada
-                            const modal = new bootstrap.Modal(document.getElementById("modalCompras"));
-                            modal.show();
-                        })
-                        .catch(error => console.error("Error al cargar la modal:", error));
+            ["btnVerCompras", "btnVerCompras2"].forEach(id => {
+                const btn = document.getElementById(id);
+                if (btn) {
+                    btn.addEventListener("click", function () {
+                        fetch("../ServletCompras?accion=verComprasUsuario")
+                                .then(response => response.text())
+                                .then(html => {
+                                    document.getElementById("contenedorModalCompras").innerHTML = html;
+                                    const modal = new bootstrap.Modal(document.getElementById("modalCompras"));
+                                    modal.show();
+                                })
+                                .catch(error => console.error("Error al cargar la modal:", error));
+                    });
+                }
             });
         </script>
+
+
+        <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+        <script>
+            $(document).ready(function () {
+                $('#btnCarrito, #btnCarrito2').on('click', function () {
+                    // Opcional: Mostrar spinner o mensaje temporal
+                    $('#modalCarrito .modal-body').html('<p class="text-center">Cargando carrito...</p>');
+
+                    // Llama al servlet para obtener el contenido del carrito
+                    $.get('../CarritoServlet', function (data) {
+                        $('#modalCarrito .modal-body').html(data);
+                        $('#modalCarrito').modal('show');
+                    }).fail(function () {
+                        $('#modalCarrito .modal-body').html('<p class="text-danger text-center">Error al cargar el carrito.</p>');
+                        $('#modalCarrito').modal('show');
+                    });
+                });
+            });
+        </script>
+
     </body>
 </html>

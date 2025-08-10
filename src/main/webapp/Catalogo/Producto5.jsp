@@ -123,15 +123,15 @@
         </ul>
 
         <div class="Menu">
-            <img src="https://funko.com/dw/image/v2/BGTS_PRD/on/demandware.static/-/Sites-funko-master-catalog/default/dwee0d696c/images/funko/upload/85191_POP_StarWars_POP-4_GLAM-WEB.png?sw=800&sh=800" alt="Darth Vader">
+            <img src="https://funko.com/dw/image/v2/BGTS_PRD/on/demandware.static/-/Sites-funko-master-catalog/default/dw6045dbf4/images/funko/31799-1.png?sw=800&sh=800" alt="Kylo Ren">
 
-            <p class="Titule"><strong>Darth Vader</strong><br>Star Wars</p>
+            <p class="Titule"><strong>Yoda</strong><br>Star Wars</p>
 
             <%
                 // Obtener el parámetro id de la URL
                 String idProducto = request.getParameter("id");
                 if (idProducto == null) {
-                    idProducto = "2"; // valor por defecto si no viene el parámetro
+                    idProducto = "5"; // valor por defecto si no viene el parámetro
                 }
             %>
 
@@ -373,6 +373,5 @@
                 });
             });
         </script>
-
     </body>
 </html>

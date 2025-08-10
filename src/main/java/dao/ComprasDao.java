@@ -126,40 +126,64 @@ public class ComprasDao {
 
         return listaCompras;
     }
-    
+
     public List<CompraDetalle> obtenerComprasSinPagarPorUsuario(int idUsuario) throws SQLException {
-    List<CompraDetalle> listaCarrito = new ArrayList<>();
+        List<CompraDetalle> listaCarrito = new ArrayList<>();
 
-    String sql = "SELECT p.nombre AS nombreProducto, dc.precioUnitario, dc.cantidad, "
-               + "(dc.precioUnitario * dc.cantidad) AS total, dc.estado, c.idCompra "
-               + "FROM detalleCompras dc "
-               + "JOIN compras c ON dc.idCompra = c.idCompra "
-               + "JOIN productos p ON dc.idProducto = p.idProducto "
-               + "WHERE c.idUsuario = ? AND c.estado = 'Sin pagar'";
+        String sql = "SELECT p.nombre AS nombreProducto, dc.precioUnitario, dc.cantidad, "
+                + "(dc.precioUnitario * dc.cantidad) AS total, dc.estado, c.idCompra "
+                + "FROM detalleCompras dc "
+                + "JOIN compras c ON dc.idCompra = c.idCompra "
+                + "JOIN productos p ON dc.idProducto = p.idProducto "
+                + "WHERE c.idUsuario = ? AND c.estado = 'Sin pagar'";
 
-    try (Connection conn = DriverManager.getConnection(
-            "jdbc:mysql://localhost:3306/FunKinal_DB?useSSL=false&allowPublicKeyRetrieval=true",
-            "quinto", "admin");
-         PreparedStatement ps = conn.prepareStatement(sql)) {
+        try (Connection conn = DriverManager.getConnection(
+                "jdbc:mysql://localhost:3306/FunKinal_DB?useSSL=false&allowPublicKeyRetrieval=true",
+                "quinto", "admin"); PreparedStatement ps = conn.prepareStatement(sql)) {
 
-        ps.setInt(1, idUsuario);
-        try (ResultSet rs = ps.executeQuery()) {
-            while (rs.next()) {
-                String nombreProducto = rs.getString("nombreProducto");
-                double precioUnitario = rs.getDouble("precioUnitario");
-                int cantidad = rs.getInt("cantidad");
-                double total = rs.getDouble("total");
-                String estado = rs.getString("estado");
-                int idCompra = rs.getInt("idCompra");
+            ps.setInt(1, idUsuario);
+            try (ResultSet rs = ps.executeQuery()) {
+                while (rs.next()) {
+                    String nombreProducto = rs.getString("nombreProducto");
+                    double precioUnitario = rs.getDouble("precioUnitario");
+                    int cantidad = rs.getInt("cantidad");
+                    double total = rs.getDouble("total");
+                    String estado = rs.getString("estado");
+                    int idCompra = rs.getInt("idCompra");
 
-                CompraDetalle detalle = new CompraDetalle(nombreProducto, precioUnitario, cantidad, total, estado);
-                detalle.setIdCompra(idCompra); 
-                listaCarrito.add(detalle);
+                    CompraDetalle detalle = new CompraDetalle(nombreProducto, precioUnitario, cantidad, total, estado);
+                    detalle.setIdCompra(idCompra);
+                    listaCarrito.add(detalle);
+                }
             }
         }
+        return listaCarrito;
     }
-    return listaCarrito;
-}
 
+    public boolean cancelarCompra(int idCompra) {
+        EntityManager admin = fabrica.createEntityManager();
+        EntityTransaction transaccion = admin.getTransaction();
+        try {
+            transaccion.begin();
+            ComprasPojo compra = admin.find(ComprasPojo.class, idCompra);
+            if (compra != null) {
+                compra.setEstado("Cancelado");  // Asumiendo que tienes setEstado en ComprasPojo
+                admin.merge(compra);
+                transaccion.commit();
+                return true;
+            } else {
+                transaccion.rollback();
+                return false;
+            }
+        } catch (Exception e) {
+            if (transaccion.isActive()) {
+                transaccion.rollback();
+            }
+            e.printStackTrace();
+            return false;
+        } finally {
+            admin.close();
+        }
+    }
 
 }

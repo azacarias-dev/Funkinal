@@ -38,10 +38,10 @@ public class ServletLogin extends HttpServlet {
 
                 // Verificar el rol y redirigir
                 String rol = usuario.getRol(); // Ejemplo: "admin" o "usuario"
-                if ("admin".equalsIgnoreCase(rol)) {
+                if ("Admin".equalsIgnoreCase(rol)) {
                     respuesta.sendRedirect("MenuAdministradores.jsp");
                 } else {
-                    respuesta.sendRedirect("inicio.jsp");
+                    respuesta.sendRedirect("Catalogo/inicio.jsp");
                 }
                 
             } else {
@@ -52,6 +52,8 @@ public class ServletLogin extends HttpServlet {
             solicitud.setAttribute("mensajeError", "El correo electrónico no está registrado.");
             solicitud.getRequestDispatcher("login.jsp").forward(solicitud, respuesta);
         }
+        
+        
     }
     
     @Override

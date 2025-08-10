@@ -23,12 +23,13 @@
                             <td>${item.cantidad}</td>
                             <td>Q. ${item.total}</td>
                             <td>
-                                 <a href="ProcesarCompraServlet?idCompra=${item.idCompra}" class="btn btn-success btn-sm">Pagar</a>
+                                <a href="../ProcesarCompraServlet?idCompra=${item.idCompra}" class="btn btn-success btn-sm">Pagar</a>
 
-                                <form action="ProcesarCompraServlet" method="post" style="display:inline-block;">
+                                <form action="../ProcesarCompraServlet" method="post" style="display:inline-block;">
                                     <input type="hidden" name="idCompra" value="${item.idCompra}" />
                                     <button type="submit" name="accion" value="cancelar" class="btn btn-danger btn-sm">Cancelar</button>
                                 </form>
+
                             </td>
                         </tr>
                     </c:forEach>

@@ -64,7 +64,7 @@
             </div>
 
             <button type="submit" class="btn btn-success">Terminar Pedido</button>
-            <a href="inicio.jsp" class="btn btn-secondary">Cancelar</a>
+            <a href="Catalogo/inicio.jsp" class="btn btn-secondary">Cancelar</a>
         </form>
 
 
