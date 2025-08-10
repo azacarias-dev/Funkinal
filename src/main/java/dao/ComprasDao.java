@@ -6,13 +6,7 @@ import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.util.ArrayList;
-import java.util.List;
-import javax.persistence.EntityManager;
-import javax.persistence.EntityManagerFactory;
-import javax.persistence.EntityTransaction;
-import javax.persistence.Persistence;
 import model.CompraDetalle;
-import model.ComprasPojo;
 
 public class ComprasDao {
 
@@ -106,7 +100,7 @@ public class ComprasDao {
 
         try (Connection conn = DriverManager.getConnection(
                 "jdbc:mysql://localhost:3306/FunKinal_DB?useSSL=false&allowPublicKeyRetrieval=true",
-                "quinto", "admin"); PreparedStatement ps = conn.prepareStatement(sql)) {
+                "quintom", "admin"); PreparedStatement ps = conn.prepareStatement(sql)) {
 
             ps.setInt(1, idUsuario);
 
@@ -139,7 +133,7 @@ public class ComprasDao {
 
         try (Connection conn = DriverManager.getConnection(
                 "jdbc:mysql://localhost:3306/FunKinal_DB?useSSL=false&allowPublicKeyRetrieval=true",
-                "quinto", "admin"); PreparedStatement ps = conn.prepareStatement(sql)) {
+                "quintom", "admin"); PreparedStatement ps = conn.prepareStatement(sql)) {
 
             ps.setInt(1, idUsuario);
             try (ResultSet rs = ps.executeQuery()) {
