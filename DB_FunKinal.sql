@@ -77,18 +77,55 @@ create table detalleRecibo (
 
 DELIMITER $$
 
-CREATE TRIGGER trg_cambiar_rol_usuario1
-before INSERT ON Usuarios
+CREATE TRIGGER trg_crear_recibo_despues_compra
+AFTER INSERT ON compras
 FOR EACH ROW
 BEGIN
-    IF NEW.idUsuario = 1 THEN
+    DECLARE pago ENUM('Efectivo','Tarjeta');
+
+    -- Obtener el metodoPago desde compras (NEW.metodoPago debería tenerlo, pero por seguridad)
+    SELECT metodoPago INTO pago FROM compras WHERE idCompra = NEW.idCompra;
+
+    INSERT INTO Recibos (idCompra, fechaEmision, total, metodoPago, estado)
+    VALUES (
+        NEW.idCompra,
+        NOW(),
+        ROUND(NEW.total * 1.05, 2),  -- total + 5% IVA
+        pago,
+        'Emitido'
+    );
+END$$
+
+DELIMITER ;
+
+
+
+
+DELIMITER $$
+
+CREATE TRIGGER trg_usuario_activo
+BEFORE INSERT ON usuarios
+FOR EACH ROW
+BEGIN
+    SET NEW.estado = 'Activo';
+END$$
+
+DELIMITER ;
+
+DELIMITER $$
+
+CREATE TRIGGER trg_usuario_1_admin
+BEFORE INSERT ON usuarios
+FOR EACH ROW
+BEGIN
+    -- Si es el primer usuario (idUsuario = 1), asignar rol Admin
+    IF (SELECT COUNT(*) FROM usuarios) = 0 THEN
         SET NEW.rol = 'Admin';
-    ELSE
-        SET NEW.rol = 'Usuario'; -- o deja el valor que venga si quieres
     END IF;
 END$$
 
 DELIMITER ;
+
 
 DELIMITER $$
 
@@ -127,7 +164,7 @@ DELIMITER ;
 
 select * from Usuarios;
 
-DELIMITER $$
+DELIMITER $$
 
 CREATE TRIGGER trg_rebajar_stock
 AFTER INSERT ON detalleCompras
@@ -223,29 +260,15 @@ FROM compras c
 JOIN detalleCompras dc ON c.idCompra = dc.idCompra
 JOIN productos p ON dc.idProducto = p.idProducto
 WHERE c.estado = 'Pagado' 
--- Opcional: filtrar por usuario, por ejemplo idUsuario=1
--- AND c.idUsuario = 1
 ORDER BY c.fechaCompra DESC;
 
 
 select * from productos ;
 select * from compras ;
 select * from detalleCompras ;
+select * from recibos ;
 
-DELIMITER $$
 
-CREATE PROCEDURE sp_actualizar_rol_admin(
-    IN p_idUsuario INT
-)
-BEGIN
-    UPDATE usuarios
-    SET rol = 'Admin'
-    WHERE idUsuario = p_idUsuario;
-END $$
-
-DELIMITER ;
-
-CALL sp_actualizar_rol_admin(1);
 
 
 
