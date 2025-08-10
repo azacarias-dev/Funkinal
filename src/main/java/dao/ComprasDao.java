@@ -106,7 +106,7 @@ public class ComprasDao {
 
         try (Connection conn = DriverManager.getConnection(
                 "jdbc:mysql://localhost:3306/FunKinal_DB?useSSL=false&allowPublicKeyRetrieval=true",
-                "quinto", "admin"); PreparedStatement ps = conn.prepareStatement(sql)) {
+                "quintom", "admin"); PreparedStatement ps = conn.prepareStatement(sql)) {
 
             ps.setInt(1, idUsuario);
 
@@ -139,7 +139,7 @@ public class ComprasDao {
 
         try (Connection conn = DriverManager.getConnection(
                 "jdbc:mysql://localhost:3306/FunKinal_DB?useSSL=false&allowPublicKeyRetrieval=true",
-                "quinto", "admin"); PreparedStatement ps = conn.prepareStatement(sql)) {
+                "quintom", "admin"); PreparedStatement ps = conn.prepareStatement(sql)) {
 
             ps.setInt(1, idUsuario);
             try (ResultSet rs = ps.executeQuery()) {

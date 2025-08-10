@@ -14,7 +14,7 @@ import javax.sql.DataSource;
 @WebServlet("/ServletCompra")
 public class ServletCompra extends HttpServlet {
 
-    @Resource(name = "jdbc/funkinal1")
+    @Resource(name = "jdbc/fun")
     private DataSource ds;
 
     @Override
@@ -50,7 +50,7 @@ public class ServletCompra extends HttpServlet {
             }
 
             InitialContext ctx = new InitialContext();
-            DataSource ds = (DataSource) ctx.lookup("jdbc/funkinal1");
+            DataSource ds = (DataSource) ctx.lookup("jdbc/fun");
             try (Connection conn = ds.getConnection()) {
 
                 String sqlDatosProducto = "SELECT precio, stock FROM productos WHERE idProducto = ?";
