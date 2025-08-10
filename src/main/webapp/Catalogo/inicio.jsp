@@ -147,7 +147,7 @@
                         <div class="funko-item">
                             <img src="https://funko.com/dw/image/v2/BGTS_PRD/on/demandware.static/-/Sites-funko-master-catalog/default/dwa03c6ecf/images/funko/37383-1.png?sw=800&sh=800" alt="Billy">
                             <p><strong>Woody</strong><br>Toy Story </p>
-                            <button type="button" class="button">
+                            <button  onclick="location.href = 'Producto7.jsp?id=7'" type="button" class="button">
                                 <span class="button__text">Agregar</span>
                                 <span class="button__icon"><svg xmlns="http://www.w3.org/2000/svg" width="24" viewBox="0 0 24 24" stroke-width="2" stroke-linejoin="round" stroke-linecap="round" stroke="currentColor" height="24" fill="none" class="svg"><line y2="19" y1="5" x2="12" x1="12"></line><line y2="12" y1="12" x2="19" x1="5"></line></svg></span>
                             </button>
@@ -155,7 +155,7 @@
                         <div class="funko-item">
                             <img src="https://funko.com/dw/image/v2/BGTS_PRD/on/demandware.static/-/Sites-funko-master-catalog/default/dwc8dca0a7/images/funko/37390-1.png?sw=800&sh=800" alt="Billy">
                             <p><strong>Buzz Lightyear</strong><br>Toy Story </p>
-                            <button type="button" class="button">
+                            <button  onclick="location.href = 'Producto8.jsp?id=8'"  type="button" class="button">
                                 <span class="button__text">Agregar</span>
                                 <span class="button__icon"><svg xmlns="http://www.w3.org/2000/svg" width="24" viewBox="0 0 24 24" stroke-width="2" stroke-linejoin="round" stroke-linecap="round" stroke="currentColor" height="24" fill="none" class="svg"><line y2="19" y1="5" x2="12" x1="12"></line><line y2="12" y1="12" x2="19" x1="5"></line></svg></span>
                             </button>
@@ -163,7 +163,7 @@
                         <div class="funko-item">
                             <img src="https://funko.com/dw/image/v2/BGTS_PRD/on/demandware.static/-/Sites-funko-master-catalog/default/dw46b7e7b5/images/funko/upload/87189A_Disney_TS30th_Sid_POP_GLAM-WEB.png?sw=800&sh=800" alt="Billy">
                             <p><strong>Sid </strong><br>Toy Story </p>
-                            <button type="button" class="button">
+                            <button onclick="location.href = 'Producto9.jsp?id=9'"  type="button" class="button">
                                 <span class="button__text">Agregar</span>
                                 <span class="button__icon"><svg xmlns="http://www.w3.org/2000/svg" width="24" viewBox="0 0 24 24" stroke-width="2" stroke-linejoin="round" stroke-linecap="round" stroke="currentColor" height="24" fill="none" class="svg"><line y2="19" y1="5" x2="12" x1="12"></line><line y2="12" y1="12" x2="19" x1="5"></line></svg></span>
                             </button>
@@ -171,7 +171,7 @@
                         <div class="funko-item">
                             <img src="https://funko.com/dw/image/v2/BGTS_PRD/on/demandware.static/-/Sites-funko-master-catalog/default/dwc546b78f/images/funko/upload/86272_Disney_ToyStory_AlienWClaw_POP_GLAM-WEB.png?sw=800&sh=800" alt="Billy">
                             <p><strong>Alien </strong><br>Toy Story </p>
-                            <button type="button" class="button">
+                            <button  onclick="location.href = 'Producto10.jsp?id=10'" type="button" class="button">
                                 <span class="button__text">Agregar</span>
                                 <span class="button__icon"><svg xmlns="http://www.w3.org/2000/svg" width="24" viewBox="0 0 24 24" stroke-width="2" stroke-linejoin="round" stroke-linecap="round" stroke="currentColor" height="24" fill="none" class="svg"><line y2="19" y1="5" x2="12" x1="12"></line><line y2="12" y1="12" x2="19" x1="5"></line></svg></span>
                             </button>
@@ -185,7 +185,7 @@
                         <div class="funko-item">
                             <img src="https://funko.com/dw/image/v2/BGTS_PRD/on/demandware.static/-/Sites-funko-master-catalog/default/dw3440cbe0/images/funko/upload/87224_Marvel_S1_FriendlyNeighborhoodSpider-Man_POP_EDIT_T7_GLAM_Frontview-WEB.png?sw=800&sh=800" alt="Billy">
                             <p><strong>Spider Man </strong><br>Spider Man </p>
-                            <button type="button" class="button">
+                            <button onclick="location.href = 'Producto11.jsp?id=11'"  type="button" class="button">
                                 <span class="button__text">Agregar</span>
                                 <span class="button__icon"><svg xmlns="http://www.w3.org/2000/svg" width="24" viewBox="0 0 24 24" stroke-width="2" stroke-linejoin="round" stroke-linecap="round" stroke="currentColor" height="24" fill="none" class="svg"><line y2="19" y1="5" x2="12" x1="12"></line><line y2="12" y1="12" x2="19" x1="5"></line></svg></span>
                             </button>
@@ -193,7 +193,7 @@
                         <div class="funko-item">
                             <img src="https://funko.com/dw/image/v2/BGTS_PRD/on/demandware.static/-/Sites-funko-master-catalog/default/dw857dd967/images/funko/upload/85187_Marvel_S1_GreenGoblin_POP_EDIT_T7_GLAM_FrontView-WEB.png?sw=800&sh=800" alt="Billy">
                             <p><strong>Duende Verde </strong><br>Spider Man </p>
-                            <button type="button" class="button">
+                            <button  onclick="location.href = 'Producto12.jsp?id=12'"  type="button" class="button">
                                 <span class="button__text">Agregar</span>
                                 <span class="button__icon"><svg xmlns="http://www.w3.org/2000/svg" width="24" viewBox="0 0 24 24" stroke-width="2" stroke-linejoin="round" stroke-linecap="round" stroke="currentColor" height="24" fill="none" class="svg"><line y2="19" y1="5" x2="12" x1="12"></line><line y2="12" y1="12" x2="19" x1="5"></line></svg></span>
                             </button>
@@ -201,7 +201,7 @@
                         <div class="funko-item">
                             <img src="https://funko.com/dw/image/v2/BGTS_PRD/on/demandware.static/-/Sites-funko-master-catalog/default/dw46a7fe15/images/funko/upload/82110_Marvel_8Bit_DoctorOctopus_POP_GLAM-WEB.png?sw=800&sh=800" alt="Billy">
                             <p><strong>Doctor Octopus </strong><br>Spider Man </p>
-                            <button type="button" class="button">
+                            <button  onclick="location.href = 'Producto13.jsp?id=13'" type="button" class="button">
                                 <span class="button__text">Agregar</span>
                                 <span class="button__icon"><svg xmlns="http://www.w3.org/2000/svg" width="24" viewBox="0 0 24 24" stroke-width="2" stroke-linejoin="round" stroke-linecap="round" stroke="currentColor" height="24" fill="none" class="svg"><line y2="19" y1="5" x2="12" x1="12"></line><line y2="12" y1="12" x2="19" x1="5"></line></svg></span>
                             </button>
@@ -209,7 +209,7 @@
                         <div class="funko-item">
                             <img src="https://funko.com/dw/image/v2/BGTS_PRD/on/demandware.static/-/Sites-funko-master-catalog/default/dwd8eae3a1/images/funko/upload/76110_POPGames_Spiderman2_Venom_GLAM-WEB.png?sw=800&sh=800" alt="Billy">
                             <p><strong> Venom </strong><br>Spider Man </p>
-                            <button type="button" class="button">
+                            <button  onclick="location.href = 'Producto14.jsp?id=14'"  type="button" class="button">
                                 <span class="button__text">Agregar</span>
                                 <span class="button__icon"><svg xmlns="http://www.w3.org/2000/svg" width="24" viewBox="0 0 24 24" stroke-width="2" stroke-linejoin="round" stroke-linecap="round" stroke="currentColor" height="24" fill="none" class="svg"><line y2="19" y1="5" x2="12" x1="12"></line><line y2="12" y1="12" x2="19" x1="5"></line></svg></span>
                             </button>
@@ -217,7 +217,7 @@
                         <div class="funko-item">
                             <img src="https://funko.com/dw/image/v2/BGTS_PRD/on/demandware.static/-/Sites-funko-master-catalog/default/dw022a9978/images/funko/upload/79452_Sandman_Dream_POP_GLAM-WEB.png?sw=800&sh=800" alt="Billy">
                             <p><strong> Sandman </strong><br>Spider Man </p>
-                            <button type="button" class="button">
+                            <button  onclick="location.href = 'Producto15.jsp?id=15'" type="button" class="button">
                                 <span class="button__text">Agregar</span>
                                 <span class="button__icon"><svg xmlns="http://www.w3.org/2000/svg" width="24" viewBox="0 0 24 24" stroke-width="2" stroke-linejoin="round" stroke-linecap="round" stroke="currentColor" height="24" fill="none" class="svg"><line y2="19" y1="5" x2="12" x1="12"></line><line y2="12" y1="12" x2="19" x1="5"></line></svg></span>
                             </button>
@@ -230,7 +230,7 @@
                         <div class="funko-item">
                             <img src="https://funko.com/dw/image/v2/BGTS_PRD/on/demandware.static/-/Sites-funko-master-catalog/default/dwb742c50e/images/funko/upload/1/86215a_POPTV_Transformers_OptiPrimal_GLAM-WEB.png?sw=800&sh=800" alt="Optimus Prime">
                             <p><strong>Optimus Prime</strong><br>Transformers</p>
-                            <button type="button" class="button">
+                            <button  onclick="location.href = 'Producto16.jsp?id=16'" type="button" class="button">
                                 <span class="button__text">Agregar</span>
                                 <span class="button__icon">
                                     <svg xmlns="http://www.w3.org/2000/svg" width="24" viewBox="0 0 24 24" stroke-width="2" stroke-linejoin="round" stroke-linecap="round" stroke="currentColor" height="24" fill="none" class="svg"><line y2="19" y1="5" x2="12" x1="12"></line><line y2="12" y1="12" x2="19" x1="5"></line></svg>
@@ -240,7 +240,7 @@
                         <div class="funko-item">
                             <img src="https://funko.com/dw/image/v2/BGTS_PRD/on/demandware.static/-/Sites-funko-master-catalog/default/dw16074ac2/images/funko/upload/80986_POP-Retro-Toys_Trfms-G1_Megatron_POP_GLAM_FIGUREONLY-WEB.png?sw=800&sh=800" alt="Megatron">
                             <p><strong>Megatron</strong><br>Transformers</p>
-                            <button type="button" class="button">
+                            <button  onclick="location.href = 'Producto17.jsp?id=17'" type="button" class="button">
                                 <span class="button__text">Agregar</span>
                                 <span class="button__icon">
                                     <svg xmlns="http://www.w3.org/2000/svg" width="24" viewBox="0 0 24 24" stroke-width="2" stroke-linejoin="round" stroke-linecap="round" stroke="currentColor" height="24" fill="none" class="svg"><line y2="19" y1="5" x2="12" x1="12"></line><line y2="12" y1="12" x2="19" x1="5"></line></svg>
@@ -250,7 +250,7 @@
                         <div class="funko-item">
                             <img src="https://funko.com/dw/image/v2/BGTS_PRD/on/demandware.static/-/Sites-funko-master-catalog/default/dwba9bd9b1/images/funko/upload/84119_Hasbro_Transformers_Cyclonus_POP_Glam-WEB.png?sw=800&sh=800" alt="Cyclonus">
                             <p><strong>Cyclonus</strong><br>Transformers</p>
-                            <button type="button" class="button">
+                            <button  onclick="location.href = 'Producto18.jsp?id=18'" type="button" class="button">
                                 <span class="button__text">Agregar</span>
                                 <span class="button__icon">
                                     <svg xmlns="http://www.w3.org/2000/svg" width="24" viewBox="0 0 24 24" stroke-width="2" stroke-linejoin="round" stroke-linecap="round" stroke="currentColor" height="24" fill="none" class="svg"><line y2="19" y1="5" x2="12" x1="12"></line><line y2="12" y1="12" x2="19" x1="5"></line></svg>
@@ -260,7 +260,7 @@
                         <div class="funko-item">
                             <img src="https://funko.com/dw/image/v2/BGTS_PRD/on/demandware.static/-/Sites-funko-master-catalog/default/dw8186dcae/images/funko/upload/84118_HASBRO_Transformers_OmegaSupreme_POPSUPER_Glam-WEB.png?sw=800&sh=800" alt="Super Omega">
                             <p><strong>Super Omega</strong><br>Transformers</p>
-                            <button type="button" class="button">
+                            <button  onclick="location.href = 'Producto19.jsp?id=19'" type="button" class="button">
                                 <span class="button__text">Agregar</span>
                                 <span class="button__icon">
                                     <svg xmlns="http://www.w3.org/2000/svg" width="24" viewBox="0 0 24 24" stroke-width="2" stroke-linejoin="round" stroke-linecap="round" stroke="currentColor" height="24" fill="none" class="svg"><line y2="19" y1="5" x2="12" x1="12"></line><line y2="12" y1="12" x2="19" x1="5"></line></svg>
@@ -270,7 +270,7 @@
                         <div class="funko-item">
                             <img src="https://funko.com/dw/image/v2/BGTS_PRD/on/demandware.static/-/Sites-funko-master-catalog/default/dw66d3623d/images/funko/upload/63955_Transformers_Acree_POP_GLAM-WEB.png?sw=800&sh=800" alt="Arcee">
                             <p><strong>Arcee</strong><br>Transformers</p>
-                            <button type="button" class="button">
+                            <button  onclick="location.href = 'Producto20.jsp?id=20'" type="button" class="button">
                                 <span class="button__text">Agregar</span>
                                 <span class="button__icon">
                                     <svg xmlns="http://www.w3.org/2000/svg" width="24" viewBox="0 0 24 24" stroke-width="2" stroke-linejoin="round" stroke-linecap="round" stroke="currentColor" height="24" fill="none" class="svg"><line y2="19" y1="5" x2="12" x1="12"></line><line y2="12" y1="12" x2="19" x1="5"></line></svg>
@@ -285,7 +285,7 @@
                         <div class="funko-item">
                             <img src="https://funko.com/dw/image/v2/BGTS_PRD/on/demandware.static/-/Sites-funko-master-catalog/default/dw8157ca84/images/funko/upload/1/86434_HP_S18_HarryWHourglass_POP_GLAM-WEB.png?sw=800&sh=800" alt="Harry">
                             <p><strong>Harry</strong><br>Harry Potter</p>
-                            <button type="button" class="button">
+                            <button  onclick="location.href = 'Producto21.jsp?id=21'" type="button" class="button">
                                 <span class="button__text">Agregar</span>
                                 <span class="button__icon">
                                     <svg xmlns="http://www.w3.org/2000/svg" width="24" viewBox="0 0 24 24" stroke-width="2" stroke-linejoin="round" stroke-linecap="round" stroke="currentColor" height="24" fill="none" class="svg"><line y2="19" y1="5" x2="12" x1="12"></line><line y2="12" y1="12" x2="19" x1="5"></line></svg>
@@ -295,7 +295,7 @@
                         <div class="funko-item">
                             <img src="https://funko.com/dw/image/v2/BGTS_PRD/on/demandware.static/-/Sites-funko-master-catalog/default/dwbaf3b5a1/images/funko/upload/1/86435_HP_S18_HermioneOppugno_POP_GLAM-WEB.png?sw=800&sh=800" alt="Hermione">
                             <p><strong>Hermione</strong><br>Harry Potter</p>
-                            <button type="button" class="button">
+                            <button  onclick="location.href = 'Producto22.jsp?id=22'" type="button" class="button">
                                 <span class="button__text">Agregar</span>
                                 <span class="button__icon">
                                     <svg xmlns="http://www.w3.org/2000/svg" width="24" viewBox="0 0 24 24" stroke-width="2" stroke-linejoin="round" stroke-linecap="round" stroke="currentColor" height="24" fill="none" class="svg"><line y2="19" y1="5" x2="12" x1="12"></line><line y2="12" y1="12" x2="19" x1="5"></line></svg>
@@ -305,7 +305,7 @@
                         <div class="funko-item">
                             <img src="https://funko.com/dw/image/v2/BGTS_PRD/on/demandware.static/-/Sites-funko-master-catalog/default/dwb07d7d23/images/funko/upload/1/86432_POP_HP_S18_Dark_Mark_POP_GLAM-WEB.png?sw=800&sh=800" alt="Dark Mark">
                             <p><strong>Dark Mark</strong><br>Harry Potter</p>
-                            <button type="button" class="button">
+                            <button  onclick="location.href = 'Producto23.jsp?id=23'" type="button" class="button">
                                 <span class="button__text">Agregar</span>
                                 <span class="button__icon">
                                     <svg xmlns="http://www.w3.org/2000/svg" width="24" viewBox="0 0 24 24" stroke-width="2" stroke-linejoin="round" stroke-linecap="round" stroke="currentColor" height="24" fill="none" class="svg"><line y2="19" y1="5" x2="12" x1="12"></line><line y2="12" y1="12" x2="19" x1="5"></line></svg>
@@ -315,7 +315,7 @@
                         <div class="funko-item">
                             <img src="https://funko.com/dw/image/v2/BGTS_PRD/on/demandware.static/-/Sites-funko-master-catalog/default/dw3397e34e/images/funko/upload/1/86436_HP_S18_LunaInDress_POP_GLAM-WEB.png?sw=800&sh=800" alt="Luna Lovegood">
                             <p><strong>Luna Lovegood</strong><br>Harry Potter</p>
-                            <button type="button" class="button">
+                            <button  onclick="location.href = 'Producto24.jsp?id=24'" type="button" class="button">
                                 <span class="button__text">Agregar</span>
                                 <span class="button__icon">
                                     <svg xmlns="http://www.w3.org/2000/svg" width="24" viewBox="0 0 24 24" stroke-width="2" stroke-linejoin="round" stroke-linecap="round" stroke="currentColor" height="24" fill="none" class="svg"><line y2="19" y1="5" x2="12" x1="12"></line><line y2="12" y1="12" x2="19" x1="5"></line></svg>
@@ -325,7 +325,7 @@
                         <div class="funko-item">
                             <img src="https://funko.com/dw/image/v2/BGTS_PRD/on/demandware.static/-/Sites-funko-master-catalog/default/dwb1fc5930/images/funko/upload/1/86437_POP_HP_S18_PukingPastillesGirl_POP_GLAM-WEB.png?sw=800&sh=800" alt="Pukin Pastille Girl">
                             <p><strong>Pukin Pastille Girl</strong><br>Harry Potter</p>
-                            <button type="button" class="button">
+                            <button  onclick="location.href = 'Producto25.jsp?id=25'" type="button" class="button">
                                 <span class="button__text">Agregar</span>
                                 <span class="button__icon">
                                     <svg xmlns="http://www.w3.org/2000/svg" width="24" viewBox="0 0 24 24" stroke-width="2" stroke-linejoin="round" stroke-linecap="round" stroke="currentColor" height="24" fill="none" class="svg"><line y2="19" y1="5" x2="12" x1="12"></line><line y2="12" y1="12" x2="19" x1="5"></line></svg>
@@ -340,7 +340,7 @@
                         <div class="funko-item">
                             <img src="https://funko.com/dw/image/v2/BGTS_PRD/on/demandware.static/-/Sites-funko-master-catalog/default/dw7412cc63/images/funko/56308-1.png?sw=800&sh=800" alt="Charizard">
                             <p><strong>Charizard</strong><br>Pokémon</p>
-                            <button type="button" class="button">
+                            <button  onclick="location.href = 'Producto26.jsp?id=26'" type="button" class="button">
                                 <span class="button__text">Agregar</span>
                                 <span class="button__icon">
                                     <svg xmlns="http://www.w3.org/2000/svg" width="24" viewBox="0 0 24 24" stroke-width="2" stroke-linejoin="round" stroke-linecap="round" stroke="currentColor" height="24" fill="none" class="svg"><line y2="19" y1="5" x2="12" x1="12"></line><line y2="12" y1="12" x2="19" x1="5"></line></svg>
@@ -350,7 +350,7 @@
                         <div class="funko-item">
                             <img src="https://funko.com/dw/image/v2/BGTS_PRD/on/demandware.static/-/Sites-funko-master-catalog/default/dwd0c7e428/images/funko/37603-1.png?sw=800&sh=800" alt="Lucario">
                             <p><strong>Lucario</strong><br>Pokémon</p>
-                            <button type="button" class="button">
+                            <button  onclick="location.href = 'Producto27.jsp?id=27'" type="button" class="button">
                                 <span class="button__text">Agregar</span>
                                 <span class="button__icon">
                                     <svg xmlns="http://www.w3.org/2000/svg" width="24" viewBox="0 0 24 24" stroke-width="2" stroke-linejoin="round" stroke-linecap="round" stroke="currentColor" height="24" fill="none" class="svg"><line y2="19" y1="5" x2="12" x1="12"></line><line y2="12" y1="12" x2="19" x1="5"></line></svg>
@@ -360,7 +360,7 @@
                         <div class="funko-item">
                             <img src="https://funko.com/dw/image/v2/BGTS_PRD/on/demandware.static/-/Sites-funko-master-catalog/default/dwbc4c2281/images/funko/upload/67665_Pokemon_Umbreon_POP_GLAM-WEB.png?sw=800&sh=800" alt="Umbreon">
                             <p><strong>Umbreon</strong><br>Pokémon</p>
-                            <button type="button" class="button">
+                            <button  onclick="location.href = 'Producto28.jsp?id=28'" type="button" class="button">
                                 <span class="button__text">Agregar</span>
                                 <span class="button__icon">
                                     <svg xmlns="http://www.w3.org/2000/svg" width="24" viewBox="0 0 24 24" stroke-width="2" stroke-linejoin="round" stroke-linecap="round" stroke="currentColor" height="24" fill="none" class="svg"><line y2="19" y1="5" x2="12" x1="12"></line><line y2="12" y1="12" x2="19" x1="5"></line></svg>
@@ -370,7 +370,7 @@
                         <div class="funko-item">
                             <img src="https://funko.com/dw/image/v2/BGTS_PRD/on/demandware.static/-/Sites-funko-master-catalog/default/dw3496d326/images/funko/56307-1.png?sw=800&sh=800" alt="Pikachu">
                             <p><strong>Pikachu</strong><br>Pokémon</p>
-                            <button type="button" class="button">
+                            <button  onclick="location.href = 'Producto29.jsp?id=29'" type="button" class="button">
                                 <span class="button__text">Agregar</span>
                                 <span class="button__icon">
                                     <svg xmlns="http://www.w3.org/2000/svg" width="24" viewBox="0 0 24 24" stroke-width="2" stroke-linejoin="round" stroke-linecap="round" stroke="currentColor" height="24" fill="none" class="svg"><line y2="19" y1="5" x2="12" x1="12"></line><line y2="12" y1="12" x2="19" x1="5"></line></svg>
@@ -380,7 +380,7 @@
                         <div class="funko-item">
                             <img src="https://funko.com/dw/image/v2/BGTS_PRD/on/demandware.static/-/Sites-funko-master-catalog/default/dw5b06710c/images/funko/50544-1.png?sw=800&sh=800" alt="Eevee">
                             <p><strong>Eevee</strong><br>Pokémon</p>
-                            <button type="button" class="button">
+                            <button  onclick="location.href = 'Producto30.jsp?id=30'" type="button" class="button">
                                 <span class="button__text">Agregar</span>
                                 <span class="button__icon">
                                     <svg xmlns="http://www.w3.org/2000/svg" width="24" viewBox="0 0 24 24" stroke-width="2" stroke-linejoin="round" stroke-linecap="round" stroke="currentColor" height="24" fill="none" class="svg"><line y2="19" y1="5" x2="12" x1="12"></line><line y2="12" y1="12" x2="19" x1="5"></line></svg>

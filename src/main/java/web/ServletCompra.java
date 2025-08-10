@@ -19,10 +19,13 @@ public class ServletCompra extends HttpServlet {
 
     @Override
     protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
-        try {
+        resp.setContentType("text/plain;charset=UTF-8");  // importante definir tipo texto plano
+
+        try (PrintWriter out = resp.getWriter()) {
+
             HttpSession session = req.getSession(false);
             if (session == null || session.getAttribute("idUsuario") == null) {
-                resp.sendRedirect("login.jsp");
+                out.write("Error: No has iniciado sesión. Por favor, inicia sesión para continuar.");
                 return;
             }
             int idUsuario = (int) session.getAttribute("idUsuario");
@@ -32,12 +35,19 @@ public class ServletCompra extends HttpServlet {
 
             if (idProductoParam == null || idProductoParam.trim().isEmpty()
                     || cantidadParam == null || cantidadParam.trim().isEmpty()) {
-                resp.sendRedirect("Catalogo/inicio.jsp");
+                out.write("Error: Parámetros incompletos. Debes especificar el producto y la cantidad.");
                 return;
             }
 
-            int idProducto = Integer.parseInt(idProductoParam);
-            int cantidad = Integer.parseInt(cantidadParam);
+            int idProducto;
+            int cantidad;
+            try {
+                idProducto = Integer.parseInt(idProductoParam);
+                cantidad = Integer.parseInt(cantidadParam);
+            } catch (NumberFormatException nfe) {
+                out.write("Error: Parámetros inválidos. El id del producto y la cantidad deben ser números.");
+                return;
+            }
 
             InitialContext ctx = new InitialContext();
             DataSource ds = (DataSource) ctx.lookup("jdbc/funkinal1");
@@ -53,13 +63,13 @@ public class ServletCompra extends HttpServlet {
                         precioUnitario = rs.getBigDecimal("precio");
                         stockDisponible = rs.getInt("stock");
                     } else {
-                        resp.sendRedirect("Catalogo/inicio.jsp");
+                        out.write("Error: Producto no encontrado.");
                         return;
                     }
                 }
 
                 if (cantidad > stockDisponible) {
-                    resp.sendRedirect("Catalogo/inicio.jsp");
+                    out.write("Error: Stock insuficiente. Solo hay " + stockDisponible + " unidades disponibles.");
                     return;
                 }
 
@@ -75,7 +85,7 @@ public class ServletCompra extends HttpServlet {
                     if (rs.next()) {
                         idCompra = rs.getInt(1);
                     } else {
-                        resp.sendRedirect("Catalogo/inicio.jsp");
+                        out.write("Error: No se pudo registrar la compra.");
                         return;
                     }
                 }
@@ -90,14 +100,16 @@ public class ServletCompra extends HttpServlet {
                     ps.executeUpdate();
                 }
 
+                // Compra exitosa, en vez de redirect puedes escribir mensaje o sí redirigir:
                 resp.sendRedirect("CompraExitosa.jsp");
 
             }
 
         } catch (Exception e) {
             e.printStackTrace();
-            resp.sendRedirect("Catalogo/inicio.jsp");
+            try (PrintWriter out = resp.getWriter()) {
+                out.write("Error inesperado al procesar la compra.");
+            }
         }
     }
-
 }
