@@ -123,7 +123,7 @@
         </ul>
 
         <div class="Menu">
-            <img src="https://funko.com/dw/image/v2/BGTS_PRD/on/demandware.static/-/Sites-funko-master-catalog/default/dwXXXXXXXXXXXX/images/funko/upload/HERMIONE_GRANGER-WEB.png?sw=800&sh=800" alt="Hermione">
+            <img src="https://funko.com/dw/image/v2/BGTS_PRD/on/demandware.static/-/Sites-funko-master-catalog/default/dwbaf3b5a1/images/funko/upload/1/86435_HP_S18_HermioneOppugno_POP_GLAM-WEB.png?sw=800&sh=800" alt="Hermione">
 
             <p class="Titule"><strong>Hermione</strong><br>Harry Potter</p>
 
