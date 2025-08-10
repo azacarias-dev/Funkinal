@@ -18,29 +18,41 @@ public class UsuariosPojo {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private int idUsuario;
+    
     @Column(name = "nombre")
     private String nombre;
+    
     @Column(name = "apellido")
     private String apellido;
+    
     @Column(name = "correo")
     private String correo;
+    
     @Column(name = "contrasena")
     private String contrasena;
+    
     @Column(name = "telefono")
     private String telefono;
+    
     @Column(name = "estado")
     private String estado;
+    
+    @Column(name = "rol")  // <-- nueva columna para rol
+    private String rol;
 
-    public UsuariosPojo(String nombre, String apellido, String correo, String contrasena, String telefono) {
+    public UsuariosPojo(String nombre, String apellido, String correo, String contrasena, String telefono, String rol) {
         this.nombre = nombre;
         this.apellido = apellido;
         this.correo = correo;
         this.contrasena = contrasena;
         this.telefono = telefono;
+        this.rol = rol;
     }
 
     public UsuariosPojo() {   
     }
+
+    // getters y setters existentes
 
     public String getTelefono() {
         return telefono;
@@ -96,5 +108,14 @@ public class UsuariosPojo {
 
     public void setEstado(String estado) {
         this.estado = estado;
+    }
+    
+    // Nuevo getter y setter para rol
+    public String getRol() {
+        return rol;
+    }
+
+    public void setRol(String rol) {
+        this.rol = rol;
     }
 }
