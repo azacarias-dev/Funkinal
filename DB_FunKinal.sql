@@ -2,6 +2,7 @@ drop database FunKinal_DB;
 create database FunKinal_DB;
 use FunKinal_DB;
 
+
 create table usuarios (
     idUsuario int auto_increment primary key,
     rol enum("Usuario","Admin") default ("Usuario"),
@@ -164,7 +165,7 @@ DELIMITER ;
 
 select * from Usuarios;
 
-DELIMITER $$
+DELIMITER $$
 
 CREATE TRIGGER trg_rebajar_stock
 AFTER INSERT ON detalleCompras
@@ -231,6 +232,22 @@ INSERT INTO productos (idCategoria, nombre, precio, descripcion, stock, estado) 
 (6, 'Umbreon', 19.99, 'Figura de Pokémon', 100, 'Existencias'),
 (6, 'Pikachu', 19.99, 'Figura de Pokémon', 100, 'Existencias'),
 (6, 'Eevee', 19.99, 'Figura de Pokémon', 100, 'Existencias');
+
+DELIMITER $$
+
+CREATE TRIGGER trg_sumar_stock_si_cancelado
+AFTER UPDATE ON detalleCompras
+FOR EACH ROW
+BEGIN
+    -- Verifica si el estado cambió y es "cancelado" (sin importar mayúsculas/minúsculas)
+    IF LOWER(NEW.estado) = 'cancelado' AND LOWER(OLD.estado) <> 'cancelado' THEN
+        UPDATE productos
+        SET stock = stock + NEW.cantidad
+        WHERE idProducto = NEW.idProducto;
+    END IF;
+END$$
+
+DELIMITER ;
 
 SELECT 
     c.idCompra,
