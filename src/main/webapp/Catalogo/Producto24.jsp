@@ -120,7 +120,7 @@
     <div class="Menu">
         <img src="https://funko.com/dw/image/v2/BGTS_PRD/on/demandware.static/-/Sites-funko-master-catalog/default/dw3397e34e/images/funko/upload/1/86436_HP_S18_LunaInDress_POP_GLAM-WEB.png?sw=800&sh=800" alt="Chicken Suit">
 
-        <p class="Titule"><strong>Luna Lovegood</strong><br>Toy Story</p>
+        <p class="Titule"><strong>Luna Lovegood</strong><br>Harry Potter</p>
 
         <%
             // Obtener el parámetro id de la URL

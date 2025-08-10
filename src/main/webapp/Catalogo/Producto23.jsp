@@ -120,7 +120,7 @@
     <div class="Menu">
         <img src="https://funko.com/dw/image/v2/BGTS_PRD/on/demandware.static/-/Sites-funko-master-catalog/default/dwb07d7d23/images/funko/upload/1/86432_POP_HP_S18_Dark_Mark_POP_GLAM-WEB.png?sw=800&sh=800" alt="Chicken Suit">
 
-        <p class="Titule"><strong>Dark Mark</strong><br>Toy Story</p>
+        <p class="Titule"><strong>Dark Mark</strong><br>Harry Potter</p>
 
         <%
             // Obtener el parámetro id de la URL
