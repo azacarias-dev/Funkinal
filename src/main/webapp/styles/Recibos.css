@@ -1,7 +1,16 @@
+/*
+Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
+Click nbfs://nbhost/SystemFileSystem/Templates/Other/CascadeStyleSheet.css to edit this template
+*/
+/* 
+    Created on : 29 jul 2025, 10:49:59
+    Author     : informatica
+*/
+
 /* Estilos generales */
 body {
     font-family: 'Arial', sans-serif;
-    background-color: #ffffff; 
+    background-color: #fff; 
     color: #333;
     margin: 0;
     padding: 0;
@@ -130,4 +139,3 @@ tr:hover {
 .text-end {
     text-align: right;
     margin-top: 20px;
-}
