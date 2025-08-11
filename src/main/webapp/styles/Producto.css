@@ -1229,7 +1229,7 @@ body {
 
 .footer2 {
     background-color: #1e1e1e;
-    position: relative;
+    position: absolute;
     width: 100%;
     bottom: 0%;
     color: white;
