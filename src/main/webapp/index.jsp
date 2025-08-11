@@ -96,8 +96,8 @@
             </button>
         </div>
         <!-- Pie de página / Información general -->
-        <footer class="footer">
-            <div class="footer-contenido">
+        <footer class="footer2">
+            <div class="footer-contenido2">
                 <p>© 2025 Funko Pop Collection. Todos los derechos reservados.</p>
                 <p>Contacto: info@funkocollection.com | Tel: +502 1234-5678</p>
                 <p>Dirección: Ciudad de Guatemala, Guatemala</p>

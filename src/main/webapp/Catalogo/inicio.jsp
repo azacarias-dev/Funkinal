@@ -1,3 +1,9 @@
+<%-- 
+    Document   : index
+    Created on : 21 jul 2025, 19:37:53
+    Author     : PC
+--%>
+
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 <!DOCTYPE html>
 <html lang="es">
