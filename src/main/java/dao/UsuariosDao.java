@@ -17,14 +17,17 @@ import model.UsuariosPojo;
  * @author informatica
  */
 public class UsuariosDao {
-    
+
     private EntityManagerFactory emf = Persistence.createEntityManagerFactory("funkinalPU");
-    
-    public void agregar(UsuariosPojo usuario){
+
+    public void agregar(UsuariosPojo usuario) {
         EntityManager em = emf.createEntityManager();
         EntityTransaction transaccion = em.getTransaction();
-        
+
         try {
+            // Forzar que siempre sea "Activo" al crearlo
+            usuario.setEstado("Activo");
+
             transaccion.begin();
             em.persist(usuario);
             transaccion.commit();
@@ -38,22 +41,22 @@ public class UsuariosDao {
             em.close();
         }
     }
-    
-    public List<UsuariosPojo> listarUsuarios(){
+
+    public List<UsuariosPojo> listarUsuarios() {
         String jpql = "SELECT u FROM Usuarios u WHERE u.estado = 'Activo'";
         EntityManager em = emf.createEntityManager();
         try {
             return em.createQuery(jpql, UsuariosPojo.class).getResultList();
-            
-        }catch(Exception e){
+
+        } catch (Exception e) {
             e.printStackTrace();
-        }finally {
+        } finally {
             em.close();
         }
         return new ArrayList<>();
     }
-    
-    public UsuariosPojo buscarPorId(int id){
+
+    public UsuariosPojo buscarPorId(int id) {
         EntityManager em = emf.createEntityManager();
         try {
             return em.find(UsuariosPojo.class, id);
@@ -61,8 +64,8 @@ public class UsuariosDao {
             em.close();
         }
     }
-    
-    public void actualizar(UsuariosPojo usuario){
+
+    public void actualizar(UsuariosPojo usuario) {
         EntityManager em = emf.createEntityManager();
         EntityTransaction transaccion = em.getTransaction();
         try {
@@ -70,27 +73,31 @@ public class UsuariosDao {
             em.merge(usuario);
             transaccion.commit();
         } catch (Exception e) {
-            if (transaccion.isActive()) transaccion.rollback();
-        }finally {
+            if (transaccion.isActive()) {
+                transaccion.rollback();
+            }
+        } finally {
             em.close();
         }
     }
-    
-    public void eliminar(int id){
+
+    public void eliminar(int id) {
         EntityManager em = emf.createEntityManager();
         EntityTransaction transaccion = em.getTransaction();
         try {
             transaccion.begin();
             UsuariosPojo usuarios = em.find(UsuariosPojo.class, id);
-            if (usuarios != null){
+            if (usuarios != null) {
                 usuarios.setEstado("Inactivo");
                 em.merge(usuarios);
             }
             transaccion.commit();
         } catch (Exception e) {
-            if (transaccion.isActive()) transaccion.rollback();
-        }finally {
+            if (transaccion.isActive()) {
+                transaccion.rollback();
+            }
+        } finally {
             em.close();
-        }          
+        }
     }
 }

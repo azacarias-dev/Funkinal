@@ -11,9 +11,10 @@
         <meta charset="UTF-8">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <link rel="icon" type="image/png" href="https://www.funko.com/on/demandware.static/Sites-FunkoUS-Site/-/default/dwdf4d4162/images/favicons/funko-favicon-96x96.png" />
-        <link rel="stylesheet" href="styles/inicio.css?<%= System.currentTimeMillis()%>">
+        <link rel="stylesheet" href="../styles/Producto.css?<%= System.currentTimeMillis()%>">
         <!-- Bootstrap CSS -->
         <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
+        <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
 
 
         <title>Funko Pop</title>
@@ -43,19 +44,18 @@
                     </div>
 
                     <div class="modal-body">
-                        <img src="https://funko.com/on/demandware.static/Sites-FunkoUS-Site/-/default/dwbc961a9d/images/funko/svg/site-logo.svg" alt="Logo Pop">
                         <p><strong>Nombre:</strong> <%= nombreUsuario%></p>
                         <p><strong>Correo:</strong> <%= correoUsuario%></p>
                     </div>
 
                     <div class="modal-footer">
                         <!-- Botón: Cambiar de cuenta (redirige a login.jsp después de cerrar sesión) -->
-                        <form action="CambiarCuenta.jsp" method="post">
+                        <form action="../CambiarCuenta.jsp" method="post">
                             <button type="submit" class="btn btn-warning">Cambiar de Cuenta</button>
                         </form>
 
                         <!-- Botón: Cerrar sesión (redirige a logout.jsp si lo haces por separado) -->
-                        <form action="CerrarSesion.jsp" method="post">
+                        <form action="../CerrarSesion.jsp" method="post">
                             <button type="submit" class="btn btn-danger">Cerrar Sesión</button>
                         </form>
 
@@ -90,9 +90,9 @@
         <!-- Menú desplegable tipo flotante -->
         <div class="menu-flotante" id="menuFlotante">
             <ul>
-                <li><a href="#">Mi Perfil</a></li>
-                <li><a href="#">Carrito</a></li>
-                <li><a href="#">Historial de Compras</a></li>
+                <li><a href="#" id="btnPerfil2">Mi Perfil</a></li>
+                <li><a href="#" id="btnCarrito2">Carrito</a></li>
+                <li><a href="#" id="btnVerCompras2">Historial de Compras</a></li>
             </ul>
         </div>
 
@@ -113,28 +113,104 @@
             </li>
 
             <li data-title="Carrito">
-                <img src="https://cdn-icons-png.flaticon.com/128/1170/1170678.png" alt="Imagen 4" class="img-isla">
+                <img src="https://cdn-icons-png.flaticon.com/128/1170/1170678.png" alt="Carrito" class="img-isla" id="btnCarrito">
             </li>
+
 
             <li data-title="Historial">
                 <img src="https://cdn-icons-png.flaticon.com/128/8302/8302434.png" alt="Imagen 4" class="img-isla" id="btnVerCompras">
             </li>
         </ul>
 
-        <div class="Ajuste"><h1>Opciones de Administradores</h1>
-            <h1>Acontinuacion se te brindaran opciones que te redigiran a cada Entidad</h1></div>
+        <div class="Menu">
+            <img src="https://funko.com/on/demandware.static/-/Sites-funko-master-catalog/default/dw66d3623d/images/funko/upload/63955_Transformers_Acree_POP_GLAM-WEB.png" alt="Arcee">
 
-        <div class="buttone-container">
-            <a href="/Funkinal/ServletUsuarios?accion=listar"><button class="buttone">Usuarios</button></a>
-            <a href="/Funkinal/ServletProductos?accion=listar"><button class="buttone">Productos</button></a>
-            <a href="/Funkinal/CategoriaServlet?accion=listar"><button class="buttone">Categorias</button></a>
-            <a href="/Funkinal/ServletRecibos?accion=listar"><button class="buttone">Recibos</button></a>
-            <a href="/Funkinal/ServletCompras?accion=listar"><button class="buttone">Compras</button></a>
+            <p class="Titule"><strong>Arcee</strong><br>Transformers</p>
+
+            <%
+                // Obtener el parámetro id de la URL
+                String idProducto = request.getParameter("id");
+                if (idProducto == null) {
+                    idProducto = "20"; // valor por defecto si no viene el parámetro
+                }
+            %>
+
+            <form action="../ServletCompra" method="post" id="formCompra">
+                <input type="hidden" id="idProducto" name="idProducto" value="<%= idProducto%>">
+
+                <div class="cantidad">
+                    <div class="fila">
+                        <label for="cantidad">Cantidad:</label>
+                        <input type="number" id="cantidad" name="cantidad" class="alineacion" min="1" required>
+                    </div>
+                </div>
+
+                <div class="botonesPagoYtarde">
+                    <button type="submit" class="btns" id="btnPagar" data-bs-toggle="modal" data-bs-target="#compraModal"> Agregar a Carrito </button>
+                    <a href="inicio.jsp"><button type="button" class="btns" id="btnGuardarMasTarde">Seguir viendo</button></a>
+                </div>
+            </form>
         </div>
+
+
+        <!-- Modal Confirmación -->
+        <div class="modal fade" id="confirmacionModal" tabindex="-1" aria-labelledby="confirmacionModalLabel" aria-hidden="true">
+            <div class="modal-dialog modal-dialog-centered">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <h5 class="modal-title" id="confirmacionModalLabel">Confirmar compra</h5>
+                        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Cerrar"></button>
+                    </div>
+                    <div class="modal-body">
+                        ¿Deseas confirmar la compra?
+                    </div>
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cancelar</button>
+                        <button type="button" class="btn btn-primary" id="btnConfirmarCompra">Confirmar</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- Modal Resultado -->
+        <div class="modal fade" id="modalResultado" tabindex="-1" aria-hidden="true">
+            <div class="modal-dialog modal-dialog-centered">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <h5 class="modal-title">Resultado de la compra</h5>
+                        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Cerrar"></button>
+                    </div>
+                    <div class="modal-body" id="contenidoModalResultado">
+                        <!-- Aquí se inserta el mensaje desde JS -->
+                    </div>
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cerrar</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+
+        <div class="modal fade" id="modalCarrito" tabindex="-1" aria-hidden="true">
+            <div class="modal-dialog modal-lg modal-dialog-centered">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <h5 class="modal-title">Carrito de Compras</h5>
+                        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Cerrar"></button>
+                    </div>
+                    <div class="modal-body" id="contenidoCarrito">
+                        <!-- Aquí se cargará dinámicamente el contenido de carrito (tabla) -->
+                    </div>
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cerrar</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+
 
         <div id="contenedorModalCompras"></div>
 
-   
         <!-- Pie de página / Información general -->
         <footer class="footer2">
             <div class="footer-contenido2">
@@ -144,11 +220,16 @@
             </div>
         </footer>
 
+
+        <!-- Bootstrap JS (requerido para que funcione el modal) -->
+        <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+
+
         <script>
-            window.onload = function () {
-                var myModal = new bootstrap.Modal(document.getElementById('usuarioModal'));
-                myModal.show();
-            };
+                        window.onload = function () {
+                            var myModal = new bootstrap.Modal(document.getElementById('usuarioModal'));
+                            myModal.show();
+                        };
         </script>
 
         <script>
@@ -242,29 +323,57 @@
         <script>
             // Obtener referencia al botón y al modal
             const btnPerfil = document.getElementById("btnPerfil");
+            const btnPerfil2 = document.getElementById("btnPerfil2");
             const modalPerfil = new bootstrap.Modal(document.getElementById("modalPerfil"));
 
             // Abrir modal al hacer clic en el botón
             btnPerfil.addEventListener("click", () => {
                 modalPerfil.show();
             });
-        </script>
-
-        <script>
-            document.getElementById("btnVerCompras").addEventListener("click", function () {
-                fetch("ServletCompras?accion=verComprasUsuario")
-                        .then(response => response.text())
-                        .then(html => {
-                            // Inyectar el contenido HTML en el contenedor
-                            document.getElementById("contenedorModalCompras").innerHTML = html;
-
-                            // Mostrar la modal una vez cargada
-                            const modal = new bootstrap.Modal(document.getElementById("modalCompras"));
-                            modal.show();
-                        })
-                        .catch(error => console.error("Error al cargar la modal:", error));
+            // Abrir modal al hacer clic en el botón
+            btnPerfil2.addEventListener("click", () => {
+                modalPerfil.show();
             });
         </script>
 
+        <script>
+            ["btnVerCompras", "btnVerCompras2"].forEach(id => {
+                const btn = document.getElementById(id);
+                if (btn) {
+                    btn.addEventListener("click", function () {
+                        fetch("../ServletCompras?accion=verComprasUsuario")
+                                .then(response => response.text())
+                                .then(html => {
+                                    document.getElementById("contenedorModalCompras").innerHTML = html;
+                                    const modal = new bootstrap.Modal(document.getElementById("modalCompras"));
+                                    modal.show();
+                                })
+                                .catch(error => console.error("Error al cargar la modal:", error));
+                    });
+                }
+            });
+        </script>
+
+
+        <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+        <script>
+            $(document).ready(function () {
+                $('#btnCarrito, #btnCarrito2').on('click', function () {
+                    // Opcional: Mostrar spinner o mensaje temporal
+                    $('#modalCarrito .modal-body').html('<p class="text-center">Cargando carrito...</p>');
+
+                    // Llama al servlet para obtener el contenido del carrito
+                    $.get('../CarritoServlet', function (data) {
+                        $('#modalCarrito .modal-body').html(data);
+                        $('#modalCarrito').modal('show');
+                    }).fail(function () {
+                        $('#modalCarrito .modal-body').html('<p class="text-danger text-center">Error al cargar el carrito.</p>');
+                        $('#modalCarrito').modal('show');
+                    });
+                });
+            });
+        </script>
+
+     
     </body>
 </html>

@@ -46,7 +46,8 @@ create table detalleCompras (
     idCompra int,
     idProducto int,
     cantidad int,
-    precioUnitario decimal(10,2),
+    precioUnitario decimal(10,2) default 0.00,
+    estado varchar(64) default ("Sin Pagar"),
     foreign key (idCompra) references compras(idCompra),
     foreign key (idProducto) references productos(idProducto)
 );
@@ -74,4 +75,232 @@ create table detalleRecibo (
     foreign key (idUsuario) references usuarios(idUsuario)
 );
 
+DELIMITER $$
+
+CREATE TRIGGER trg_crear_recibo_despues_compra
+AFTER INSERT ON compras
+FOR EACH ROW
+BEGIN
+    DECLARE pago ENUM('Efectivo','Tarjeta');
+
+    -- Obtener el metodoPago desde compras (NEW.metodoPago debería tenerlo, pero por seguridad)
+    SELECT metodoPago INTO pago FROM compras WHERE idCompra = NEW.idCompra;
+
+    INSERT INTO Recibos (idCompra, fechaEmision, total, metodoPago, estado)
+    VALUES (
+        NEW.idCompra,
+        NOW(),
+        ROUND(NEW.total * 1.05, 2),  -- total + 5% IVA
+        pago,
+        'Emitido'
+    );
+END$$
+
+DELIMITER ;
+
+
+
+
+DELIMITER $$
+
+CREATE TRIGGER trg_usuario_activo
+BEFORE INSERT ON usuarios
+FOR EACH ROW
+BEGIN
+    SET NEW.estado = 'Activo';
+END$$
+
+DELIMITER ;
+
+DELIMITER $$
+
+CREATE TRIGGER trg_usuario_1_admin
+BEFORE INSERT ON usuarios
+FOR EACH ROW
+BEGIN
+    -- Si es el primer usuario (idUsuario = 1), asignar rol Admin
+    IF (SELECT COUNT(*) FROM usuarios) = 0 THEN
+        SET NEW.rol = 'Admin';
+    END IF;
+END$$
+
+DELIMITER ;
+
+
+DELIMITER $$
+
+CREATE TRIGGER trg_actualizar_estado_detalle AFTER UPDATE ON compras
+FOR EACH ROW
+BEGIN
+    IF NEW.estado <> OLD.estado THEN
+        UPDATE detalleCompras
+        SET estado = NEW.estado
+        WHERE idCompra = NEW.idCompra;
+    END IF;
+END $$
+
+DELIMITER ;
+
+
+DELIMITER //
+
+CREATE TRIGGER before_insert_detalle_compra
+BEFORE INSERT ON detalleCompras
+FOR EACH ROW
+BEGIN
+    DECLARE precio DECIMAL(10,2);
+
+    -- Obtener el precio del producto desde la tabla productos
+    SELECT p.precio INTO precio
+    FROM productos p
+    WHERE p.idProducto = NEW.idProducto;
+
+    -- Asignar ese precio al campo precioUnitario del nuevo registro
+    SET NEW.precioUnitario = precio;
+END;
+//
+
+DELIMITER ;
+
 select * from Usuarios;
+
+DELIMITER $$
+
+CREATE TRIGGER trg_rebajar_stock
+AFTER INSERT ON detalleCompras
+FOR EACH ROW
+BEGIN
+    UPDATE productos
+    SET stock = stock - NEW.cantidad
+    WHERE idProducto = NEW.idProducto;
+END $$
+
+DELIMITER ;
+Insert into categorias(nombre, descripcion)values 
+("Star Wars","Personajes de la saga de peliculas Star Wars"),
+("TOY STORY","Juguetes de la nsaga de peliculas animadas Toy Story"),
+("Spider-man","Personajes de la serie de peliculas e historietas del Hombre Araña"),
+("Transformers","Personajes de la serie animada y saga de peliculas de Michael Bay"),
+("Harry Potter","Personajes de la serie de libros y peliculas de Harry Potter"),
+("Pokemon","Personajes animados de la serie animada de Pokemon Go");
+
+-- Star Wars (idCategoria = 2)
+INSERT INTO productos (idCategoria, nombre, precio, descripcion, stock, estado) VALUES 
+(1, 'Mandalorian', 19.99, 'Figura de Star Wars', 100, 'Existencias'),
+(1, 'Darth Vader', 19.99, 'Figura de Star Wars', 100, 'Existencias'),
+(1, 'Kylo Ren', 19.99, 'Figura de Star Wars', 100, 'Existencias'),
+(1, 'Admiral Ackbar', 19.99, 'Figura de Star Wars', 100, 'Existencias'),
+(1, 'Yoda', 19.99, 'Figura de Star Wars', 100, 'Existencias');
+
+-- Toy Story (idCategoria = 1)
+INSERT INTO productos (idCategoria, nombre, precio, descripcion, stock, estado) VALUES 
+(2, 'Chicken Suit', 19.99, 'Figura de Toy Story', 100, 'Existencias'),
+(2, 'Woody', 19.99, 'Figura de Toy Story', 100, 'Existencias'),
+(2, 'Buzz Lightyear', 19.99, 'Figura de Toy Story', 100, 'Existencias'),
+(2, 'Sid', 19.99, 'Figura de Toy Story', 100, 'Existencias'),
+(2, 'Alien', 19.99, 'Figura de Toy Story', 100, 'Existencias');
+
+-- Spider Man (idCategoria = 3)
+INSERT INTO productos (idCategoria, nombre, precio, descripcion, stock, estado) VALUES 
+(3, 'Spider Man (Friendly Neighborhood)', 19.99, 'Figura de Spider Man', 100, 'Existencias'),
+(3, 'Duende Verde (Green Goblin)', 19.99, 'Figura de Spider Man', 100, 'Existencias'),
+(3, 'Doctor Octopus', 19.99, 'Figura de Spider Man', 100, 'Existencias'),
+(3, 'Venom', 19.99, 'Figura de Spider Man', 100, 'Existencias'),
+(3, 'Sandman', 19.99, 'Figura de Spider Man', 100, 'Existencias');
+
+-- Transformers (idCategoria = 4)
+INSERT INTO productos (idCategoria, nombre, precio, descripcion, stock, estado) VALUES 
+(4, 'Optimus Prime', 19.99, 'Figura de Transformers', 100, 'Existencias'),
+(4, 'Megatron', 19.99, 'Figura de Transformers', 100, 'Existencias'),
+(4, 'Cyclonus', 19.99, 'Figura de Transformers', 100, 'Existencias'),
+(4, 'Super Omega (Omega Supreme)', 19.99, 'Figura de Transformers', 100, 'Existencias'),
+(4, 'Arcee', 19.99, 'Figura de Transformers', 100, 'Existencias');
+
+-- Harry Potter (idCategoria = 5)
+INSERT INTO productos (idCategoria, nombre, precio, descripcion, stock, estado) VALUES 
+(5, 'Harry', 19.99, 'Figura de Harry Potter', 100, 'Existencias'),
+(5, 'Hermione', 19.99, 'Figura de Harry Potter', 100, 'Existencias'),
+(5, 'Dark Mark', 19.99, 'Figura de Harry Potter', 100, 'Existencias'),
+(5, 'Luna Lovegood', 19.99, 'Figura de Harry Potter', 100, 'Existencias'),
+(5, 'Pukin Pastille Girl', 19.99, 'Figura de Harry Potter', 100, 'Existencias');
+
+-- Pokémon (idCategoria = 6)
+INSERT INTO productos (idCategoria, nombre, precio, descripcion, stock, estado) VALUES 
+(6, 'Charizard', 19.99, 'Figura de Pokémon', 100, 'Existencias'),
+(6, 'Lucario', 19.99, 'Figura de Pokémon', 100, 'Existencias'),
+(6, 'Umbreon', 19.99, 'Figura de Pokémon', 100, 'Existencias'),
+(6, 'Pikachu', 19.99, 'Figura de Pokémon', 100, 'Existencias'),
+(6, 'Eevee', 19.99, 'Figura de Pokémon', 100, 'Existencias');
+
+SELECT 
+    c.idCompra,
+    c.idUsuario,
+    p.idProducto,
+    p.nombre AS nombreProducto,
+    dc.cantidad,
+    dc.precioUnitario,
+    (dc.cantidad * dc.precioUnitario) AS subtotal
+FROM compras c
+JOIN detalleCompras dc ON c.idCompra = dc.idCompra
+JOIN productos p ON dc.idProducto = p.idProducto
+WHERE c.estado = 'Sin pagar' 
+-- Opcional: filtrar por usuario, por ejemplo idUsuario=1
+-- AND c.idUsuario = 1
+ORDER BY c.fechaCompra DESC;
+
+SELECT 
+    c.idCompra,
+    c.idUsuario,
+    p.idProducto,
+    p.nombre AS nombreProducto,
+    dc.cantidad,
+    dc.precioUnitario,
+    (dc.cantidad * dc.precioUnitario) AS subtotal
+FROM compras c
+JOIN detalleCompras dc ON c.idCompra = dc.idCompra
+JOIN productos p ON dc.idProducto = p.idProducto
+WHERE c.estado = 'Pagado' 
+ORDER BY c.fechaCompra DESC;
+
+delimiter //
+	create trigger tr_productos_after_insert
+    after insert on detalleCompras
+    for each row
+		begin
+			update productos
+				set
+					stock = stock - new.cantidad
+				where idProducto = new.idProducto;
+        end//
+delimiter ;
+
+delimiter //
+	create trigger tr_productos_before_insert
+    before insert on detalleCompras
+    for each row
+		begin
+			declare stockActual int;
+            select stock into stockActual
+            from productos p
+            where p.idProducto = new.idProducto;
+            
+            if stockActual <= 0 then
+            signal sqlstate '45000'
+            set message_text = 'Error: El producto no tiene suficiente stock.';
+            end if;
+        end//
+delimiter ;
+
+select * from productos ;
+select * from compras ;
+select * from detalleCompras ;
+select * from recibos ;
+select * from usuarios;
+
+
+
+
+
+
+
+
