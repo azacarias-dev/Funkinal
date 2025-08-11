@@ -1,3 +1,16 @@
+
+/*
+  Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
+  Click nbfs://nbhost/SystemFileSystem/Templates/JSP_Servlet/CascadeStyleSheet.css to edit this template
+
+  Created on : 19 jul 2025, 12:25:56
+  Author     : PC
+*/
+
+/*------------------------------------*/
+/* Reset básico */
+/*------------------------------------*/
+
 * {
     margin: 0;
     padding: 0;
@@ -1409,4 +1422,5 @@ body {
         padding: 10px;
         font-size: 16px;
     }
+
 }
